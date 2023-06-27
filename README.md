@@ -2,7 +2,7 @@
 
 Bonjour !
 
-Bienvenue dans ce protitype de Assembly, une app qui permet de ractonter des comptes.
+Bienvenue dans ce prototype de Assembly, une app qui permet de ractonter des comptes.
 
 L'application a vocation à :
 
