@@ -3,6 +3,6 @@ FactoryBot.define do
     association :storyroom
     association :word
     dice_value { 20 }
-    event_output { "MyText" }
+    description { "MyText" }
   end
 end
