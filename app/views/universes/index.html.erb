@@ -1,2 +1,7 @@
-<h1>Storyrooms#index</h1>
+<h1>Universes#index</h1>
 <p>Find me in app/views/universes/index.html.erb</p>
+
+<% @universes.each do |universe| %>
+  <p><%= universe.title %> <%= link_to 'more infos', universe_path(universe) %></p>
+
+<% end %>

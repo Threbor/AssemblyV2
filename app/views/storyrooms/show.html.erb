@@ -1,2 +1,33 @@
 <h1>Storyrooms#show</h1>
 <p>Find me in app/views/storyrooms/show.html.erb</p>
+<h2><%= @title %></h2>
+<h3><%=  @universe.title %></h3>
+
+<h3>Vous incarnez</h3>
+<% @characters.each do |character| %>
+  <p> character : <%= character.name %></p>
+<% end %>
+
+<h4>Racontez un morceau de son histoire dans cet univers avant de tous les assembler pour en faire un récit.</h4>
+
+<h4>Appuyez sur Lancer le D20 pour ajouter un évènement lorsque vous el souhaitez</h4>
+
+<% @timeline_items.each do |item| %>
+  <% if item.is_a? Event %>
+    <p><b><%= item.word.title %> - D20 : <%= item.dice_value %> - <%= item.description %></b></p>
+  <% elsif item.is_a? Message %>
+    <p><%= current_user.username %> : <%= item.content %></p>
+  <% end %>
+<% end %>
+
+<% if @storycards.count > 0 %>
+  <p>Evènements restants : <%= @storycards.count %>
+  <%= button_to 'Lancer le D20', storyroom_events_path(@storyroom), method: :post %></p>
+<% else %>
+  <h2>Fin</h2>
+<% end %>
+
+<%= form_for [@storyroom, @message] do |f| %>
+  <%= f.text_field :content %>
+  <%= f.submit "Send" %>
+<% end %>
