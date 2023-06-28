@@ -7,17 +7,20 @@ Bienvenue dans ce prototype de Assembly, une app qui permet de ractonter des com
 L'application a vocation à :
 
 * permettre de ractoner des histoires seuls (work in progress)
-  * travailler la show des Universes
-    * [] gérer la création des storyrooms
-    * [] bien gérer la création des storycards liées aux story rooms
-    * [] add migration to add a description in the show
-    * [] add a POST request to the universe show in order to create a Storyroom
-    * [] show by chronological order les event and the messages done.
-    * [] add the possibility to delete, or update the messages
-    * [] addd the UPDATE or DELETE Messages
-    * [] Link the number of event linked to story cards.
-    * [] possibility to export in docX an history
-    * [] possibility to export in pdf an history
+  * [ ] permettre un lien entre une storyroom et plusieurs utilisateurs (permettra d'afficher une story room selon les Users)
+  * [ ] permettre l'update des messages
+  * [ ] possibility to export in docX an history
+  * [ ] possibility to export in pdf an history
+  * [ ] travailler le front des Universes#index
+  * [ ] travailler le front des Universes#show
+  * [ ] travailler le front des Storyroom#index
+  * [ ] travailler le front des Storyroom#show
+  * [ ] Ajouter la feature de l'history
+  * [ ] travailler le front des History#index
+  * [ ] travailler le front des History#show
+  * [ ] Gérer clairmeent l'interface d'utilisateur (connecté ou non)
+  * [ ] Gameplay : ajouter des objectif pour chaque mondes
+  * [ ] Gameplay : ajouter des objectif aléatoires
 * permettre de raconter des histoires à plusieurs (inachevé)
 * permettre de raconter des histoires avec chat GPT (inachevé)
 

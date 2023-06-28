@@ -20,4 +20,35 @@ class StoryroomsController < ApplicationController
 
     @message = Message.new
   end
+
+  def new
+    @storyroom = Storyroom.new
+    @universe = Universe.find(params[:universe_id])
+    @title = @universe.title
+    @words = @universe.words
+  end
+
+  def create
+    # création de la salle de jeu
+    @storyroom = Storyroom.new(storyroom_params)
+    # @storyroom.user = current_user
+
+    # création des cartes de mots liés à la salle de jeu
+    @storyroom.universe.words.each do |word|
+      Storycard.create(title: word.title, storyroom: @storyroom)
+    end
+
+    if @storyroom.save
+      redirect_to storyroom_path(@storyroom)
+    else
+      render :new
+    end
+  end
+
+
+  private
+
+  def storyroom_params
+    params.require(:storyroom).permit(:title, :universe_id)
+  end
 end
