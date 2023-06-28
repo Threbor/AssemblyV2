@@ -24,7 +24,9 @@ puts 'DB Cleaned!'
 
 puts ''
 puts 'Creating Universes...'
-Universe.create(title: 'Contrées givrées')
+Universe.create(title: 'Glaciarift')
+Universe.create(title: 'Foragreen')
+Universe.create(title: 'Desaride')
 puts 'Universes created!'
 
 
@@ -45,26 +47,26 @@ puts 'Characters created!'
 puts ''
 puts 'Creating Universe_character_associations...'
 UniverseCharacterAssociation.create(
-  universe_id: Universe.find_by(title: 'Contrées givrées').id,
+  universe_id: Universe.find_by(title: 'Glaciarift').id,
   character_id: Character.find_by(name: 'Olaf le viking').id)
 puts 'Universe_character_associations created!'
 
 puts ''
 puts 'Creating Universe_word_associations...'
 UniverseWordAssociation.create(
-  universe_id: Universe.find_by(title: 'Contrées givrées').id,
+  universe_id: Universe.find_by(title: 'Glaciarift').id,
   word_id: Word.find_by(title: 'Espoire').id
 )
 UniverseWordAssociation.create(
-  universe_id: Universe.find_by(title: 'Contrées givrées').id,
+  universe_id: Universe.find_by(title: 'Glaciarift').id,
   word_id: Word.find_by(title: 'Trahison').id
 )
 UniverseWordAssociation.create(
-  universe_id: Universe.find_by(title: 'Contrées givrées').id,
+  universe_id: Universe.find_by(title: 'Glaciarift').id,
   word_id: Word.find_by(title: 'Amour').id
 )
 UniverseWordAssociation.create(
-  universe_id: Universe.find_by(title: 'Contrées givrées').id,
+  universe_id: Universe.find_by(title: 'Glaciarift').id,
   word_id: Word.find_by(title: 'Avalanche').id
 )
 puts 'Universe_word_associations created!'
@@ -72,8 +74,12 @@ puts 'Universe_word_associations created!'
 puts ''
 puts 'Creating Storyroom...'
 Storyroom.create(
-  universe_id: Universe.find_by(title: 'Contrées givrées').id,
+  universe_id: Universe.find_by(title: 'Glaciarift').id,
   title: 'la voie givrée'
+)
+Storyroom.create(
+  universe_id: Universe.find_by(title: 'Desaride').id,
+  title: 'L\'épée ardante'
 )
 puts 'Storyroom created!'
 

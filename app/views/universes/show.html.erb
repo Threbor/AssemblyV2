@@ -1,2 +1,16 @@
-<h1>Storyrooms#show</h1>
+<h1>Universes#show</h1>
 <p>Find me in app/views/universes/show.html.erb</p>
+
+<p><%= @universe.title %></p>
+
+<h2>Les mots clés</h2>
+<% @words.each do |word| %>
+  <p><%= word.title %></p>
+<% end %>
+
+<h2>Les personnages à incarner</h2>
+<% @characters.each do |character| %>
+  <p><%= character.name %></p>
+<% end %>
+
+<h2><%= link_to'Lancer l\'aventure!', storyrooms_path %></h2>
