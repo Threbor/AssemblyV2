@@ -2,7 +2,8 @@ require 'rails_helper'
 
 RSpec.describe Storyroom, type: :model do
   let(:universe) { create(:universe, title: 'Contrées givrées') }
-  let(:storyroom) { create(:storyroom, universe: universe, title: 'test storyroom') }
+  let(:user) { create(:user, email: 'tester@mail.com', password: '123456', username: 'testeur') }
+  let(:storyroom) { create(:storyroom, universe: universe, title: 'test storyroom', user: user) }
 
     it 'has a valid factory' do
       expect(storyroom).to be_valid
@@ -15,6 +16,11 @@ RSpec.describe Storyroom, type: :model do
 
     it 'is invalid without a title' do
       storyroom.title = nil
+      expect(storyroom).not_to be_valid
+    end
+
+    it 'is invalid without a user' do
+      storyroom.user = nil
       expect(storyroom).not_to be_valid
     end
 

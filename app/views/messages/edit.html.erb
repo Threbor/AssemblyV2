@@ -1,0 +1,9 @@
+Le message acturel est : <%= @message.content %>
+
+<h2>Modifier le message</h2>
+
+<%= form_for [@storyroom, @message], url: storyroom_message_path(@storyroom, @message), method: :patch do |f| %>
+  <%= f.label :content, "Message:" %>
+  <%= f.text_area :content %>
+  <%= f.submit "Mettre à jour le message" %>
+<% end %>
