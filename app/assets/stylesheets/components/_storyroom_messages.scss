@@ -1,0 +1,42 @@
+
+.message_current_user {
+  border: 1px solid #333;
+  border-radius: .5rem .5rem 0rem .5rem;
+  margin: 2rem;
+  margin-right: 0rem;
+
+  & p {
+    margin: .5rem;
+  }
+}
+
+.message_other_user {
+  border-radius: .5rem .5rem .5rem 0rem;
+  margin: 2rem;
+  margin-left: 0rem;
+}
+
+.message_typing {
+  width: 100%;
+  text-align: center;
+
+}
+
+#messageField {
+  width: 60%;
+  height: 1rem;
+  border-radius: .5rem;
+  border: 1px solid #333;
+}
+
+.message_typing_edit {
+  width: 100%;
+  text-align: center;
+}
+
+#messageFieldEdit {
+  width: 80%;
+  height: 5rem;
+  border-radius: .5rem;
+  border: 1px solid #333;
+}

@@ -1,7 +1,8 @@
 
-
 <% @storyrooms.each do |storyroom| %>
   <% if storyroom.user == current_user %>
-    <p><%= storyroom.universe.title %> - <%= storyroom.title %> <%= link_to 'more infos', storyroom_path(storyroom) %></p>
+    <%= link_to storyroom_path(storyroom), class: "storyroom_card" do %>
+      <p><%= storyroom.universe.title %> - <%= storyroom.title %></p>
+    <% end %>
   <% end %>
 <% end %>

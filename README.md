@@ -7,18 +7,16 @@ Bienvenue dans ce prototype de Assembly, une app qui permet de ractonter des com
 L'application a vocation à :
 
 * permettre de ractoner des histoires seuls (work in progress)
-  * [x] permettre un lien entre une storyroom et plusieurs utilisateurs (permettra d'afficher une story room selon les Users)
-  * [x] Validation : une storyroom est créée avec un utilisateur (le current user)
-  * [x] avoir un affichage des storyrooms selon le(s) utilisateurs dedans.
-  * [x] créer le currentuser entant que propriétaire d'une salle lor de sa création.
-  * [x] avoir une nav bar pour s'authetifier ou non
-  * [x] permettre l'update des messages
-  * [ ] front : Stoiryroom avoir une fen^tre de la story room qui se dirige toujours au plus bas
-  * [ ] front : Stoiryroom avoir un curseur qui est prêt à remplir le champ de completions
   * [ ] travailler le front des Universes#index
+    * [ ] Ajouter des photos surt la DB des universes
   * [ ] travailler le front des Universes#show
-  * [ ] travailler le front des Storyroom#index
-  * [ ] travailler le front des Storyroom#show
+    * [ ] Ajouter une show sur les Characters
+  * [ ] Enisager une simplificaiton des bases de données
+    * [ ] dans un univers, y'a des personnages , qui ont leur propre quête et motivaitons ? (resemble à destiny)
+    * [ ] ou se rapprocher de la structure de Fragment, le jeu de société ? ...
+    * [ ] ou des enjeux généraux à compléter sois même + des personnages particuliers selon les univers.
+    * [ ] ou des enjeux de bases , et un free style à écrire à la main par l'utilisateur; et idem pour les perosnnages.
+
   * [ ] Ajouter la feature de l'history
   * [ ] travailler le front des History#index
   * [ ] travailler le front des History#show

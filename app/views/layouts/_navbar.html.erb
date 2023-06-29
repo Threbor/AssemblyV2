@@ -1,9 +1,14 @@
 <nav class="navbar">
-  <div class="container">
-    <div class="navbar">
-      <%= link_to "Universes", universes_path, class: "navbar_link" %>
-      <%= link_to "Storyrooms", storyrooms_path, class: "navbar_link" %>
-      <%= link_to "History", history_index_path, class: "navbar_link" %>
-    </div>
-  </div>
+    <%= link_to universes_path, class: "navbar_item #{current_page?(universes_path) ? "active" : ""}" do %>
+      <box-icon name='planet'></box-icon>
+      <p>Universes</p>
+    <% end %>
+    <%= link_to storyrooms_path, class: "navbar_item #{current_page?(storyrooms_path) ? "active" : ""}" do %>
+      <box-icon name='conversation' ></box-icon>
+      <p>Storyrooms</p>
+    <% end %>
+    <%= link_to history_index_path, class: "navbar_item #{current_page?(history_index_path) ? "active" : ""}" do %>
+      <box-icon name='book' ></box-icon>
+      <p>History</p>
+    <% end %>
 </nav>

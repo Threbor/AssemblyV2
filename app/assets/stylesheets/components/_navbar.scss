@@ -1,0 +1,33 @@
+.navbar {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: white;
+  height: 5rem;
+  border-top: 1px solid black;
+}
+
+.navbar_item {
+  width: 4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+
+  & p{
+    margin: .5rem;
+  }
+}
+
+.active {
+  color: #FF0000;
+
+  & box-icon {
+    color: #FF0000;
+  }
+}

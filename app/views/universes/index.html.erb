@@ -1,5 +1,10 @@
-<h1>Les univers disponibles</h1>
-<% @universes.each do |universe| %>
-  <p><%= universe.title %> <%= link_to 'more infos', universe_path(universe) %></p>
-
-<% end %>
+<div class="universes_section">
+  <h1>Les univers disponibles</h1>
+  <% @universes.each do |universe| %>
+    <%= link_to universe_path(universe), class: "universe_card" do %>
+      <h2><%= universe.title %></h2>
+      <p><%= universe.description[0..300] %>...</p>
+      <box-icon name='info-circle' ></box-icon>
+    <% end %>
+  <% end %>
+</div>
