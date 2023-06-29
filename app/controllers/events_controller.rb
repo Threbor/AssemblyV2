@@ -9,9 +9,9 @@ class EventsController < ApplicationController
     @event.description = outcome(@event.dice_value)
 
     if @event.save
-      redirect_to @storyroom, notice: "Event was successfully created."
+      redirect_to @storyroom
     else
-      redirect_to @storyroom, alert: "There was an error creating the event."
+      redirect_to @storyroom
     end
   end
 

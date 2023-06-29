@@ -1,15 +1,16 @@
+<div class="universe_card">
+  <h1>Bienvenue dans l'univers de <%= @title %>!</h1>
+  <p><%= @universe.description %></p>
+</div>
 
-<h1>Welcome to <%= @title %></h1>
-<p><%= @universe.description %></p>
+<div class="storyroom_newtail">
+  <h2>Votre quête :</h2>
+  <h2>Votre personnage :</h2>
+  <h2>Nommez votre récit</h2>
 
-<h2>sélection aléatoire parmis les mots disponibles</h2>
-<% @words.each do |word| %>
-  <p><%= word.title %></p>
-<% end %>
-<h3>Please, name your adventure</h3>
-
-<%= form_for @storyroom do |f| %>
-  <%= f.text_field :title %>
-  <%= f.hidden_field :universe_id, value: @universe.id %>
-  <%= f.submit "Send" %>
-<% end %>
+  <%= form_for @storyroom do |f| %>
+    <%= f.text_field :title %>
+    <%= f.hidden_field :universe_id, value: @universe.id %>
+    <%= f.submit "Valider" %>
+  <% end %>
+</div>

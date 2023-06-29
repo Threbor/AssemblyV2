@@ -1,14 +1,34 @@
-<h1><%= @universe.title %></h1>
-<p><%= @universe.description %></p>
+<div class="universe_card">
+  <h1><%= @universe.title %></h1>
+  <p><%= @universe.description %></p>
+</div>
 
 <h2>Les mots clés</h2>
-<% @words.each do |word| %>
-  <p><%= word.title %></p>
+<div class="universe_words">
+  <% @words.each do |word| %>
+    <div class="universe_word">
+      <p><%= word.title %></p>
+    </div>
 <% end %>
+</div>
 
 <h2>Les personnages à incarner</h2>
-<% @characters.each do |character| %>
-  <p><%= character.name %></p>
-<% end %>
+<div class="universe_characters">
+  <% @characters.each do |character| %>
+    <div class="universe_character">
+      <div class="character_img">
+      </div>
+      <div class="character_description">
+        <p><%= character.name %></p>
+        <p><%= character.quotation %></p>
+      </div>
+    </div>
+  <% end %>
+</div>
 
-<h2><%= link_to 'Lancer l\'aventure!', new_storyroom_path(universe_id: @universe.id) %></h2>
+<div class="launch_adventure">
+  <%= link_to new_storyroom_path(universe_id: @universe.id) do %>
+    <h2>Commencez votre récit</h2>
+    <box-icon name='book-bookmark' ></box-icon>
+  <% end %>
+</div>

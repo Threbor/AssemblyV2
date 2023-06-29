@@ -1,39 +1,58 @@
-
-<h2><%= @title %></h2>
-<h3><%=  @universe.title %></h3>
-<p><%=  @universe.description %></p>
+<div class="universe_card">
+  <h2><%= @title %></h2>
+  <h3><%=  @universe.title %></h3>
+  <p><%=  @universe.description %></p>
+</div>
 
 <h3>Vous incarnez</h3>
-<% @characters.each do |character| %>
-  <p><%= character.name %></p>
-  <p>"<%= character.quotation %>"</p>
-  <p><%= character.background %></p>
-<% end %>
+<div class="universe_characters">
+  <% @characters.each do |character| %>
+  <div class="universe_character">
+    <div class="character_img">
+    </div>
+    <div class="character_description">
+      <p><%= character.name %></p>
+      <p>"<%= character.quotation %>"</p>
+    </div>
+    <% end %>
+  </div>
+</div>
 
-<h4>Racontez successivement un morceau de son histoire dans cet univers avant de tous les assembler pour en faire un récit.</h4>
+<h5>Racontez successivement un morceau de son histoire dans cet univers avant de tous les assembler pour en faire un récit.</h5>
 
-<h4>Appuyez sur Lancer le D20 pour ajouter un évènement lorsque vous el souhaitez</h4>
+<h5>Appuyez sur Lancer le D20 pour ajouter un évènement lorsque vous el souhaitez</h5>
 
-<% @timeline_items.each do |item| %>
-  <% if item.is_a? Event %>
-    <p><b><%= item.word.title %> - D20 : <%= item.dice_value %> - <%= item.description %></b></p>
-  <% elsif item.is_a? Message %>
-    <p><%= item.user.username %> : <%= item.content %></p>
-    <% if current_user == item.user %>
-      <%= link_to 'Modifier', edit_storyroom_message_path(@storyroom, item), method: :get %>
+<div class="storyroom_messages">
+  <% @timeline_items.each do |item| %>
+    <% if item.is_a? Event %>
+      <div class="event_announcement">
+        <p><b><%= item.word.title %> - D20 : <%= item.dice_value %> - <%= item.description %></b></p>
+      </div>
+    <% elsif item.is_a? Message %>
+      <div class="message_current_user">
+          <p><%= item.content %></p>
+          <% if current_user == item.user %>
+            <%= link_to edit_storyroom_message_path(@storyroom, item), method: :get do %>
+              <box-icon name='edit-alt' ></box-icon>
+            <% end %>
+          <% end %>
+      </div>
     <% end %>
   <% end %>
-<% end %>
+</div>
 
+<div class="event_counter">
+  <% if @storycards.count > 0 %>
+    <p>Evènements restants : <%= @storycards.count %>
+    <%= button_to 'Lancer le D20', storyroom_events_path(@storyroom), method: :post %></p>
+  <% else %>
+    <h2>Fin</h2>
+  <% end %>
+</div>
 
-<% if @storycards.count > 0 %>
-  <p>Evènements restants : <%= @storycards.count %>
-  <%= button_to 'Lancer le D20', storyroom_events_path(@storyroom), method: :post %></p>
-<% else %>
-  <h2>Fin</h2>
-<% end %>
-
-<%= form_for [@storyroom, @message] do |f| %>
-  <%= f.text_field :content, autofocus: true %>
-  <%= f.submit "Send" %>
-<% end %>
+<div class="message_typing">
+  <%= form_for [@storyroom, @message] do |f| %>
+    <%= f.text_field :content, id: "messageField"%>
+    <%= f.submit "Raconter" %>
+  <% end %>
+</div>

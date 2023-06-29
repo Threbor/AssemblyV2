@@ -30,8 +30,13 @@ Universe.create(
   description: 'Un univers de glace et de neige'
 )
 Universe.create(
-  title: 'Foragreen',
-  description: 'Un univers de forêt et de verdure'
+  title: 'Night City',
+  description: 'Night City est une métropole située en Californie du Nord, créée par Richard Night en 1994.
+  Conçue comme une utopie moderne et multiculturelle, la ville est pourtant corrompue et dominée par les corporations,
+  le crime et la violence des gangs. L\'assassinat de Richard Night en 1998 plonge la ville dans une période de chaos,
+  contrôlée par la mafia, avant un coup d\'état des corporations en 2009.
+  En 2020, Night City est une métropole en pleine croissance mais toujours en proie à la violence et à la criminalité,
+  et devient le champ de bataille de la Quatrième Guerre Corporatiste en 2022.'
 )
 Universe.create(
   title: 'Desaride',
@@ -40,26 +45,6 @@ Universe.create(
 Universe.create(
   title: 'Blocean',
   description: 'Un univers d\'eau et d\'ilots'
-)
-Universe.create(
-  title: 'Aeris',
-  description: 'Un univers de vent et de nuages'
-)
-Universe.create(
-  title: 'Vulcania',
-  description: 'Un univers de feu et de lave'
-)
-Universe.create(
-  title: 'Abyssia',
-  description: 'Un univers de ténèbres et de vide'
-)
-Universe.create(
-  title: 'Aetheria',
-  description: 'Un univers de lumière et de vide'
-)
-Universe.create(
-  title: 'Aurora',
-  description: 'Un univers de lumière et de glace'
 )
 puts 'Universes created!'
 
@@ -99,6 +84,27 @@ Character.create(
   background: 'Né de l\'union d\'une sirène et d\'un marin, Erug incarne la frontière entre les hommes et les créatures marines. Ses écailles luisantes et sa capacité à respirer sous l\'eau témoignent de son héritage marin, tandis que son humanité se manifeste dans son désir de paix entre ces deux mondes. Sa connaissance profonde de la mer et de ses secrets lui permet d\'être un ambassadeur naturel, travaillant sans relâche à la coexistence pacifique entre les êtres humains et les habitants des profondeurs.'
 )
 
+puts 'Creating Characters... for Night City'
+Character.create(
+  name: 'Adam Smasher',
+  quotation: 'Harg!',
+  background: 'Adam Smasher est un cyberpunk assez typique, un bon à rien
+  new yorkais qui a grandi dans la rue et s\'est spécialisé dans la violence
+  appliquée. Cela dit, il a toujours su s\'adapter ; c\'est pourquoi il est
+  rentré dans l\'Armée de Terre dès que son gang s\'est fait décimer.
+  Ayant porté l\'uniforme pendant plusieurs années, il s\'est libéré de ses
+  obligations militaires (il a été renvoyé pour mauvaise conduite) et est
+  devenu tueur à gages à New York. '
+)
+Character.create(
+  name: 'Johnny Silverhand',
+  quotation: 'Samouraï, réveille-toi, bordel, nous avons une ville à brûler !',
+  background: 'ohnny Silverhand, né sous le nom de Robert John Linder, est un
+  homme que tout le monde connaît en Amérique. Un ancien militaire américain
+  qui a fait du mouvement rockerboy ce qu\'il est aujourd\'hui.'
+)
+
+
 puts 'Characters created!'
 
 puts ''
@@ -114,6 +120,16 @@ UniverseCharacterAssociation.create(
   universe_id: Universe.find_by(title: 'Blocean').id,
   character_id: Character.find_by(name: 'Erug').id)
 puts 'Creating Universe_character_associations... for Blocean done!'
+
+puts''
+puts 'Creating Universe_character_associations... for Night City'
+UniverseCharacterAssociation.create(
+  universe_id: Universe.find_by(title: 'Night City').id,
+  character_id: Character.find_by(name: 'Adam Smasher').id)
+UniverseCharacterAssociation.create(
+  universe_id: Universe.find_by(title: 'Night City').id,
+  character_id: Character.find_by(name: 'Johnny Silverhand').id)
+  puts 'Creating Universe_character_associations... for Night City'
 
 puts 'Universe_character_associations created!'
 
@@ -168,6 +184,29 @@ UniverseWordAssociation.create(
   word_id: Word.find_by(title: 'Mort').id
 )
 puts 'Creating Universe_word_associations... for Blocean done!'
+
+puts 'Creating Universe_word_associations... for Night City'
+UniverseWordAssociation.create(
+  universe_id: Universe.find_by(title: 'Night City').id,
+  word_id: Word.find_by(title: 'Mariage').id
+)
+UniverseWordAssociation.create(
+  universe_id: Universe.find_by(title: 'Night City').id,
+  word_id: Word.find_by(title: 'Divorce').id
+)
+UniverseWordAssociation.create(
+  universe_id: Universe.find_by(title: 'Night City').id,
+  word_id: Word.find_by(title: 'Révélation').id
+)
+UniverseWordAssociation.create(
+  universe_id: Universe.find_by(title: 'Night City').id,
+  word_id: Word.find_by(title: 'Conflit').id
+)
+UniverseWordAssociation.create(
+  universe_id: Universe.find_by(title: 'Night City').id,
+  word_id: Word.find_by(title: 'Résolution').id
+)
+puts 'Creating Universe_word_associations... for Night City done !'
 
 puts 'Universe_word_associations created!'
 
