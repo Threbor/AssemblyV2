@@ -31,6 +31,7 @@ class StoryroomsController < ApplicationController
   def create
     # création de la salle de jeu
     @storyroom = Storyroom.new(storyroom_params)
+    @storyroom.user = current_user
     # @storyroom.user = current_user
 
     # création des cartes de mots liés à la salle de jeu

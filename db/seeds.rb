@@ -11,6 +11,7 @@
 puts 'Creating test data...'
 UniverseCharacterAssociation.delete_all
 UniverseWordAssociation.delete_all
+StoryroomUserAssociation.delete_all
 Message.delete_all
 Storycard.delete_all
 Event.delete_all
@@ -171,25 +172,61 @@ puts 'Creating Universe_word_associations... for Blocean done!'
 puts 'Universe_word_associations created!'
 
 puts ''
-puts 'Creating Storyroom...'
-Storyroom.create(
-  universe_id: Universe.find_by(title: 'Glaciarift').id,
-  title: 'la voie givrée'
-)
-Storyroom.create(
-  universe_id: Universe.find_by(title: 'Desaride').id,
-  title: 'L\'épée ardante'
-)
-puts 'Storyroom created!'
 
-puts ''
 puts 'Creating User...'
+
 User.create(
   email: 'hugo@mail.com',
   password: '123456',
   username: 'Hugotesteur'
 )
+
+User.create(
+  email: 'bravo@mail.com',
+  password: '123456',
+  username: 'bravotesteur'
+)
+
+User.create(
+  email: 'charlie@mail.com',
+  password: '123456',
+  username: 'charlietesteur'
+)
+
 puts 'User created!'
+
+puts ''
+
+puts 'Creating Storyroom...'
+Storyroom.create(
+  universe_id: Universe.find_by(title: 'Glaciarift').id,
+  title: 'la voie givrée',
+  user_id: User.find_by(username: 'Hugotesteur').id
+)
+
+Storyroom.create(
+  universe_id: Universe.find_by(title: 'Desaride').id,
+  title: 'L\'épée ardante',
+  user_id: User.find_by(username: 'charlietesteur').id
+
+)
+puts 'Storyroom created!'
+
+puts ''
+puts 'Creating Storyroom_user_associations...'
+StoryroomUserAssociation.create(
+  storyroom_id: Storyroom.find_by(title: 'la voie givrée').id,
+  user_id: User.find_by(username: 'Hugotesteur').id
+)
+StoryroomUserAssociation.create(
+  storyroom_id: Storyroom.find_by(title: 'la voie givrée').id,
+  user_id: User.find_by(username: 'bravotesteur').id
+)
+StoryroomUserAssociation.create(
+  storyroom_id: Storyroom.find_by(title: 'la voie givrée').id,
+  user_id: User.find_by(username: 'charlietesteur').id
+)
+puts 'Creating Storyroom_user_associations... done!'
 
 puts ''
 puts 'Creating Message...'

@@ -10,6 +10,20 @@ class MessagesController < ApplicationController
     end
   end
 
+  def edit
+    @message = Message.find(params[:id])
+    @storyroom = @message.storyroom
+  end
+
+  def update
+    @message = Message.find(params[:id])
+    if @message.update(message_params)
+      redirect_to storyroom_path(@message.storyroom)
+    else
+      render :edit
+    end
+  end
+
   private
 
   def message_params

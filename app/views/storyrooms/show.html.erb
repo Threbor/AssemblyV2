@@ -18,9 +18,13 @@
   <% if item.is_a? Event %>
     <p><b><%= item.word.title %> - D20 : <%= item.dice_value %> - <%= item.description %></b></p>
   <% elsif item.is_a? Message %>
-    <p><%= current_user.username %> : <%= item.content %></p>
+    <p><%= item.user.username %> : <%= item.content %></p>
+    <% if current_user == item.user %>
+      <%= link_to 'Modifier', edit_storyroom_message_path(@storyroom, item), method: :get %>
+    <% end %>
   <% end %>
 <% end %>
+
 
 <% if @storycards.count > 0 %>
   <p>Evènements restants : <%= @storycards.count %>
@@ -30,6 +34,6 @@
 <% end %>
 
 <%= form_for [@storyroom, @message] do |f| %>
-  <%= f.text_field :content %>
+  <%= f.text_field :content, autofocus: true %>
   <%= f.submit "Send" %>
 <% end %>
