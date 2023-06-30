@@ -24,9 +24,12 @@ class StoryroomsController < ApplicationController
   def new
     @storyroom = Storyroom.new
     @universe = Universe.find(params[:universe_id])
+    @synopsis = Synopsis.find(params[:synopse_id])
+    @character = Character.find(params[:character_id])
     @title = @universe.title
     @words = @universe.words
   end
+
 
   def create
     # création de la salle de jeu
@@ -50,6 +53,6 @@ class StoryroomsController < ApplicationController
   private
 
   def storyroom_params
-    params.require(:storyroom).permit(:title, :universe_id)
+    params.require(:storyroom).permit(:title, :universe_id, :storyroom_synopsis, :storyroom_synopsis)
   end
 end

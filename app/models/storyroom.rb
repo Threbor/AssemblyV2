@@ -7,6 +7,7 @@ class Storyroom < ApplicationRecord
   has_many :events
   has_many :words, through: :events
   has_many :storycards
+  has_many :storyroom_characters
   validates :title, presence: true, uniqueness: { scope: :universe }
   validates :user, presence: true
 end

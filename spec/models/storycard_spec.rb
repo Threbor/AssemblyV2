@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Storycard, type: :model do
-  let(:universe) { Universe.create(title: 'test') }
+  let(:universe) { Universe.create(title: 'test', photo:'a') }
   let(:user) { create(:user, email: 'tester@mail.com', password: '123456', username: 'testeur') }
   let(:storyroom) { Storyroom.create(title: 'test', universe: universe, user: user) }
   let(:storycard) { Storycard.create(title: 'test', storyroom: storyroom) }

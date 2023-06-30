@@ -1,10 +1,14 @@
 <div class="universes_section">
   <h1>Les univers disponibles</h1>
   <% @universes.each do |universe| %>
-    <%= link_to universe_path(universe), class: "universe_card" do %>
+    <%= link_to universe_path(universe), class: "universe_card", style: "background-image: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 50%), url(#{universe.photo});" do %>
       <h2><%= universe.title %></h2>
-      <p><%= universe.description[0..300] %>...</p>
-      <box-icon name='info-circle' ></box-icon>
+      <p><%= universe.description.split('.').first %>.</p>
+      <box-icon name='info-circle'></box-icon>
+      <div class="card_stats">
+        <p>synopsises : <%= universe.synopses.count %></p>
+        <p>personnages : <%= universe.characters.count %></p>
+      </div>
     <% end %>
   <% end %>
 </div>

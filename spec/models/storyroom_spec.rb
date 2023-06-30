@@ -30,4 +30,9 @@ RSpec.describe Storyroom, type: :model do
       expect(duplicate_storyroom).not_to be_valid
     end
 
+    it 'is valide without a synopsis' do
+      storyroom.storyroom_synopsis = nil
+      expect(storyroom).to be_valid
+    end
+
 end
