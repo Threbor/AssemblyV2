@@ -1,0 +1,19 @@
+.caroussel_btn {
+  display: flex;
+  justify-content: center;
+
+  & button {
+    color: #fff;
+    background-color: #007BFF;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    margin: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+
+  & button:hover {
+    background-color: #0056b3;
+  }
+}

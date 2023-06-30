@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_29_141943) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_30_173914) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -21,6 +21,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_29_141943) do
     t.string "background"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "age"
   end
 
   create_table "events", force: :cascade do |t|
@@ -52,6 +53,18 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_29_141943) do
     t.index ["storyroom_id"], name: "index_storycards_on_storyroom_id"
   end
 
+  create_table "storyroom_characters", force: :cascade do |t|
+    t.bigint "storyroom_id", null: false
+    t.string "photo"
+    t.string "name"
+    t.string "quotation"
+    t.string "background"
+    t.integer "age"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["storyroom_id"], name: "index_storyroom_characters_on_storyroom_id"
+  end
+
   create_table "storyroom_user_associations", force: :cascade do |t|
     t.bigint "storyroom_id", null: false
     t.bigint "user_id", null: false
@@ -67,8 +80,17 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_29_141943) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
+    t.string "storyroom_synopsis"
     t.index ["universe_id"], name: "index_storyrooms_on_universe_id"
     t.index ["user_id"], name: "index_storyrooms_on_user_id"
+  end
+
+  create_table "synopses", force: :cascade do |t|
+    t.string "description"
+    t.bigint "universe_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["universe_id"], name: "index_synopses_on_universe_id"
   end
 
   create_table "universe_character_associations", force: :cascade do |t|
@@ -94,6 +116,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_29_141943) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "description"
+    t.string "photo"
   end
 
   create_table "users", force: :cascade do |t|
@@ -120,10 +143,12 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_29_141943) do
   add_foreign_key "messages", "storyrooms"
   add_foreign_key "messages", "users"
   add_foreign_key "storycards", "storyrooms"
+  add_foreign_key "storyroom_characters", "storyrooms"
   add_foreign_key "storyroom_user_associations", "storyrooms"
   add_foreign_key "storyroom_user_associations", "users"
   add_foreign_key "storyrooms", "universes"
   add_foreign_key "storyrooms", "users"
+  add_foreign_key "synopses", "universes"
   add_foreign_key "universe_character_associations", "characters"
   add_foreign_key "universe_character_associations", "universes"
   add_foreign_key "universe_word_associations", "universes"

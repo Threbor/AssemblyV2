@@ -1,34 +1,51 @@
-.universe_characters {
-  display: grid;
-  grid-template-columns: repeat(1, 1fr);
-  grid-gap: 1rem;
-  margin: 1rem;
-}
 
 .universe_character {
+  display: none;
+  background: #f9f9f9;
+  border-radius: 5px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+  padding: 20px;
+  margin: 20px;
+  width: 80%;
+  max-width: 500px;
+}
+
+.universe_character.selected {
   display: flex;
-  background-color: lightgray;
-  border-radius: .5rem;
-  padding: 1rem;
+  flex-direction: column;
+}
+
+.character_top {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.character_img {
+  width: 100px;
+  height: 100px;
+  margin-right: 20px;
+  background-position: center;
+  background-size: cover;
+  border-radius: 50%;
+}
+
+.character_info {
+  flex: 1;
+
+  & h3 {
+    margin: 0;
+    color: #333;
+  }
 
   & p {
-    color: #575757;
-    font-size: 16px;
+    margin: 5px 0;
   }
 
-  & .character_img {
-    width: 30%;
-    height: 100%;
-    border: 1px solid black;
-    border-radius: .5rem;
-    margin-right: 1rem;
-    background-image: url("https://cdn.midjourney.com/1ef8d27a-41ff-466a-b737-689829afc2f0/0_1.png");
-    background-size: cover;
-    background-position: center;
-  }
-
-  & .character_description {
-    font-size: 16px;
+  & p:nth-child(2) {
     font-weight: bold;
+  }
+
+  & p:nth-child(3) {
+    font-style: italic;
   }
 }
