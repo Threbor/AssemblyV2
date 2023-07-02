@@ -1,3 +1,7 @@
+<%= link_to universe_path(@universe), class:"topbar_back_button" do %>
+  <i class="fa-solid fa-angle-left"></i>
+<% end %>
+
 <div class="universe_card" style="background-image: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 75%), url(<%= @universe.photo %>);">
   <h2>Votre récit s'apprête à débuter ...</h2>
   <p><%= @universe.title %> - <%= @universe.description.split('.').first %></p>
@@ -27,8 +31,8 @@
     </div>
 
     <div>
-      <%= form.label :title, "Titre de votre récit" %>
-      <%= form.text_field :title, value: 'L\'épopée'%>
+      <%= form.label :title, "Nommez votre de votre récit" %>
+      <%= form.text_field :title, value: 'L\'histoire de ...'%>
     </div>
 
     <%= button_tag(type: 'submit') do %>

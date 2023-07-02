@@ -1,5 +1,5 @@
 <div class="storyroom_edit_icon">
-  <%= link_to edit_storyroom_path(@storyroom), method: :get do %>
+  <%= button_to storyroom_path(@storyroom), method: :delete, data: { confirm: 'Are you sure?' } do %>
     <i class="fa-regular fa-trash-can"></i>
   <% end %>
   <%= link_to edit_storyroom_path(@storyroom), method: :get do %>

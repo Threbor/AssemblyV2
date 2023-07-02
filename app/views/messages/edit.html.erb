@@ -1,3 +1,7 @@
+<%= link_to storyroom_path(@storyroom), class:"topbar_back_button" do %>
+  <i class="fa-solid fa-angle-left"></i>
+<% end %>
+
 <div class="paragraphe_container">
   <h2>Le morceau de votre récit : </h2>
   <p><%= @message.content %></p>
