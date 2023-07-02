@@ -5,18 +5,27 @@
   position: fixed;
   bottom: 6rem;
   right: 1rem;
-  background-color: #007BFF;
-  color: #fff;
+  background-color: #fff;
+  color: #333;
   width: 60px;
   height: 60px;
+  border: 1px solid #333;
   border-radius: 50%;
   box-shadow: 0 2px 10px rgba(0,0,0,0.2);
   transition: background-color 0.3s;
   text-decoration: none;
+
+  & i {
+    font-size: 1.5rem;
+
+  }
+
+
 }
 
 .floating-button:hover {
-  background-color: #0056b3;
+  background-color: #333;
+  color: #fff;
 }
 
 .floating-button box-icon {

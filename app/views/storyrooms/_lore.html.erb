@@ -1,0 +1,50 @@
+<div class="storyroom_edit_icon">
+  <%= link_to edit_storyroom_path(@storyroom), method: :get do %>
+    <i class="fa-regular fa-trash-can"></i>
+  <% end %>
+  <%= link_to edit_storyroom_path(@storyroom), method: :get do %>
+    <i class="fa-regular fa-pen-to-square"></i>
+  <% end %>
+</div>
+
+<div class="paragraphe_container">
+  <h2>L'univers de <%= @storyroom.universe.title %></h2>
+  <p><%= @storyroom.universe.description %></p>
+</div>
+
+<div class="paragraphe_container">
+  <h2>Le synopsis du récit</h2>
+  <p><%= @storyroom.storyroom_synopsis %></p>
+</div>
+
+<div class="universe_characters">
+  <h2>Le personnage</h2>
+  <div class="universe_character selected">
+    <div class="character_top">
+            <div class="character_img" style="background-image: url(<%= @storyroom.storyroom_characters.first.photo %>);">
+            </div>
+            <div class="character_info">
+              <h3><%= @storyroom.storyroom_characters.first.name %></h3>
+              <p><%= @storyroom.storyroom_characters.first.age ? "#{@storyroom.storyroom_characters.first.age} ans" : "" %></p>
+              <p><em>"<%= @storyroom.storyroom_characters.first.quotation %>"</em></p>
+            </div>
+          </div>
+          <div class="character_description">
+            <p><%= @storyroom.storyroom_characters.first.background %></p>
+          </div>
+        </div>
+  </div>
+</div>
+
+<div class="universe_characters selected">
+  <% @characters.each do |character| %>
+  <div class="universe_character">
+    <div class="character_img">
+    </div>
+    <div class="character_description">
+      <p><%= character.name %></p>
+      <p>"<%= character.quotation %>"</p>
+    </div>
+    <% end %>
+  </div>
+</div>

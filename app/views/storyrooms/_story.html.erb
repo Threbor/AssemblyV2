@@ -1,0 +1,69 @@
+<% if @storyroom.events.count == 0 %>
+  <div class="infos_container" id="infos">
+    <p><i>Comme dans un journal, racontez successivement des morceaux d'histoire dans cet univers.
+    <br>Lancez le D20 <i class="fa-solid fa-dice-d20"></i> pour un élan d'inspiration!</i></p>
+  </div>
+
+  <div class="paragraphe_container">
+    <p><%= @storyroom.storyroom_synopsis %></p>
+  </div>
+<% end %>
+
+<div class="storyroom_messages">
+  <% @timeline_items.each do |item| %>
+    <% if item.is_a? Event %>
+      <div class="event_announcement">
+        <p><b><%= item.word.title %></b></p>
+        <i class="fa-solid fa-dice-d20"></i>
+        <p><b><%= item.description %></b></p>
+      </div>
+    <% elsif item.is_a? Message %>
+        <div class="messages_infos">
+          <p><%= item.created_at.strftime("%d %B %Y, %H:%M") %></p>
+          <div class="character_user_picture" style="background-image: url(<%= @storyroom_character.photo %>);">
+          </div>
+          <p><%= @storyroom_character.name %></p>
+        </div>
+          <% if current_user == item.user %>
+      <div class="message_current_user">
+          <p><%= item.content %></p>
+            <%= link_to edit_storyroom_message_path(@storyroom, item), method: :get do %>
+              <i class="fa-regular fa-pen-to-square"></i>
+            <% end %>
+      </div>
+          <% end %>
+    <% end %>
+  <% end %>
+</div>
+
+<div class="message_bar_container">
+  <div class="message_bar" data-controller="messagebar">
+    <div class="division_bar">
+    </div>
+    <div class="event_counter">
+      <% if @storycards.count > 0 %>
+        <p><%= @storycards.count %></p>
+        <%# en attendant AJAX %>
+        <%# <%= button_to storyroom_events_path(@storyroom), method: :post, data: {action: "messagebar#scrollDown"} do %>
+        <%= button_to storyroom_events_path(@storyroom), method: :post do %>
+        <%#  %>
+          <i class="fa-solid fa-dice-d20"></i>
+        <% end %>
+      <% else %>
+        <h2>Fin</h2>
+      <% end %>
+    </div>
+
+    <div class="message_typing">
+      <%= form_for [@storyroom, @message] do |f| %>
+        <%= f.text_field :content, data: { messagebar_target: "messageField"} %>
+          <%# en attendant AJAX %>
+        <%# <%= button_tag(type: 'submit', data: { action: "messagebar#scrollDown" }) do %>
+        <%= button_tag(type: 'submit') do %>
+          <%#  %>
+          <i class="fa-solid fa-feather"></i>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>

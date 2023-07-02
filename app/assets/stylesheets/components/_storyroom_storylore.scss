@@ -1,0 +1,70 @@
+.storyroom_storylore {
+  display: none;
+}
+
+.storyroom_story {
+  display: none;
+}
+
+.storyroom_story.selected {
+  display: block;
+}
+
+.storyroom_lore {
+  display: none;
+}
+
+.storyroom_lore.selected {
+  display: block;
+}
+
+.universe_character {
+  display: none;
+  background: #f9f9f9;
+  border-radius: 5px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+  padding: 20px;
+  margin: 20px;
+  width: 80%;
+  max-width: 500px;
+}
+
+.universe_character.selected {
+  display: flex;
+  flex-direction: column;
+}
+
+.character_top {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.character_img {
+  width: 100px;
+  height: 100px;
+  margin-right: 20px;
+  background-position: center;
+  background-size: cover;
+  border-radius: 50%;
+}
+
+.character_info {
+  flex: 1;
+
+  & h3 {
+    margin: 0;
+    color: #333;
+  }
+
+  & p {
+    margin: 5px 0;
+  }
+
+  & p:nth-child(2) {
+    font-weight: bold;
+  }
+
+  & p:nth-child(3) {
+    font-style: italic;
+  }
+}

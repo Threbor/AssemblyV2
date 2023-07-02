@@ -2,5 +2,38 @@
   text-align: center;
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 1rem;
-  margin: µ1rem;
+  margin: 1rem;
+}
+
+.storyroom_edit_icon {
+  padding: 2rem;
+  display: flex;
+  justify-content: space-around;
+  color: #333;
+
+  & a {
+    position: relative;
+  }
+
+  & i {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.5rem;
+    box-shadow: 0 0 1rem rgba(0,0,0,0.1);
+    padding: 1rem;
+    border-radius: 2rem;
+    transition: all .3s ease-in-out;
+
+  }
+
+  & i:hover {
+    background-color: #333;
+    color: white;
+  }
+}
+
+.storyroom_messages{
+  margin-bottom: 5rem;
 }

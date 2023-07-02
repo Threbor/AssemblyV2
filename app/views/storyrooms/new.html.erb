@@ -1,19 +1,29 @@
 <div class="universe_card" style="background-image: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 75%), url(<%= @universe.photo %>);">
-  <h2>Votre récit s'apprête à débuter</h2>
+  <h2>Votre récit s'apprête à débuter ...</h2>
   <p><%= @universe.title %> - <%= @universe.description.split('.').first %></p>
 </div>
+
+  <div class="infos_container">
+    <p>Modifiez les élements si vous le souhaitez.</p>
+  </div>
+
 <div class="storyroom_newtail">
   <%= form_with model: @storyroom do |form| %>
     <%= form.hidden_field :universe_id, value: @universe.id %>
 
     <div>
       <%= form.label :storyroom_synopsis, "Synopsis" %>
+      <%= form.hidden_field :storyroom_synopsis_original_id, value: @synopsis.id%>
       <%= form.text_area :storyroom_synopsis, value: @synopsis.description, rows: 5 %>
     </div>
 
     <div>
-      <%= form.label :storyroom_synopsis, "Character" %>
-      <%= form.text_field :storyroom_synopsis, value: @character.name %>
+      <%= form.label :storyroom_character, "Personnage" %>
+      <%= form.hidden_field :storyroom_character_original_id, value: @character.id%>
+      <%= form.text_field :storyroom_character_name, value: @character.name %>
+      <%= form.text_field :storyroom_character_quotation, value: @character.quotation %>
+      <%= form.text_area :storyroom_character_background, value: @character.background, rows: 8 %>
+      <%= form.hidden_field :storyroom_character_photo, value: @character.photo %>
     </div>
 
     <div>
@@ -21,12 +31,9 @@
       <%= form.text_field :title, value: 'L\'épopée'%>
     </div>
 
-    <%= form.submit "Créer une Storyroom" %>
-  <% end %>
+    <%= button_tag(type: 'submit') do %>
+      <i class="fa-solid fa-feather"></i>
+    <% end %>
 
-  <%= form_for @storyroom do |f| %>
-    <%= f.text_field :title %>
-    <%= f.hidden_field :universe_id, value: @universe.id %>
-    <%= f.submit "Valider" %>
   <% end %>
 </div>

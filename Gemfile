@@ -47,6 +47,10 @@ gem 'devise'
 
 gem 'sassc-rails'
 
+gem 'font-awesome-sass', '~> 6.4.0'
+
+gem 'bootstrap', '~> 5.0'
+
 
 # Use Sass to process CSS
 # gem "sassc-rails"
