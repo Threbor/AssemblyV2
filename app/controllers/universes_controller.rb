@@ -1,6 +1,6 @@
 class UniversesController < ApplicationController
   def index
-    @universes = Universe.all
+    @universes = Universe.all.shuffle
   end
 
   def show

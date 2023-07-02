@@ -5,7 +5,7 @@
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-  height: 18rem;
+  height: 26rem;
   padding: 20px;
   margin: 20px;
   border-radius: 5px;
@@ -37,6 +37,27 @@
     justify-content: space-between;
     align-items: center;
     margin-top: 0px;
+  }
+
+  & .storyroom_universe_btn {
+    margin: 1rem;
+    margin-bottom: 0;
+    display: flex;
+    justify-content: space-between;
+
+    & button {
+      color: #ffffff;
+      background-color: transparent;
+      border: 1px solid transparent;
+      border-radius: 1rem;
+      padding: .5rem 1rem;
+    }
+
+    & .selected {
+      color: #ffffff;
+      border: 1px solid #ffffff;
+
+    }
   }
 
 }

@@ -5,11 +5,25 @@
   position: fixed;
   bottom: 0;
   left: 0;
+  right: 0;
   width: 100%;
-  background-color: white;
   height: 5rem;
-  border-top: 1px solid black;
+  margin: auto;
+  background-color: white;
+  border-top: 1px solid #333;
+  z-index: 100;
+
+  & a {
+    color: #333;
+  }
+  
+  & a:hover i {
+    background-color: #333;
+    color: #fff;
+  }
+
 }
+
 
 .navbar_item {
   width: 4rem;
@@ -19,15 +33,25 @@
   align-items: center;
   height: 100%;
 
-  & p{
-    margin: .5rem;
+  & i {
+    font-size: 1.5rem;
+    border-radius: 5rem;
+    padding: .5rem 1rem;
+    transition: ease-in-out 0.3s;
+
   }
+
+  & p {
+    font-size: .8rem;
+    margin: 0;
+  }
+
 }
 
 .active {
-  color: #FF0000;
 
-  & box-icon {
-    color: #FF0000;
+  & i {
+    background-color: #333;
+    color: #fff;
   }
 }

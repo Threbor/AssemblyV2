@@ -1,4 +1,5 @@
 .topbar {
+  color: #333;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -8,27 +9,33 @@
   width: 100%;
   background-color: white;
   height: 4rem;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid #333;
   z-index: 100;
-}
+  font-size: 1.5rem;
 
-.navbar_item {
-  width: 4rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
+  & a {
+    color: #333;
+    text-decoration: none;
+  }
 
-  & p{
-    margin: .5rem;
+  & i {
+    font-size: 1.5rem;
+  }
+
+  & p {
+    margin: 0;
   }
 }
 
-.active {
-  color: #FF0000;
+.topbar_back_button {
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  z-index: 100;
+  padding: 0 1.5rem;
+  color: #333;
 
-  & box-icon {
-    color: #FF0000;
+  & i {
+    font-size: 2rem;
   }
 }

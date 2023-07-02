@@ -1,2 +1,12 @@
 
-<p>Bonjour et bienvenue dans le prototype de assembly , un super jeu de role pour s’entrainer à raconter des histoires !!</p>
+<div class="paragraphe_container">
+  <p>Bonjour et bienvenue dans le prototype de assembly , un super jeu de role pour s’entrainer à raconter des histoires !!</p>
+
+<% if user_signed_in? %>
+    <%= button_to destroy_user_session_path, method: :delete do %>
+      <i class="fa-solid fa-arrow-right-from-bracket"></i>
+    <% end %>
+  <% else %>
+    <%= link_to 'Sign in', user_session_path %>
+<% end %>
+</div>

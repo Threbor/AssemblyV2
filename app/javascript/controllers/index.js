@@ -6,3 +6,18 @@ import { application } from "./application"
 
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
+
+import HellouniverseController from "./hellouniverse_controller"
+application.register("hellouniverse", HellouniverseController)
+
+import MessagebarController from "./messagebar_controller"
+application.register("messagebar", MessagebarController)
+
+import StoryroomController from "./storyroom_controller"
+application.register("storyroom", StoryroomController)
+
+import UniverseController from "./universe_controller"
+application.register("universe", UniverseController)
+
+import StorybarController from "./storybar_controller"
+application.register("storybar", StorybarController)

@@ -1,8 +1,13 @@
 
 <% @storyrooms.each do |storyroom| %>
   <% if storyroom.user == current_user %>
-    <%= link_to storyroom_path(storyroom), class: "storyroom_card" do %>
-      <p><%= storyroom.universe.title %> - <%= storyroom.title %></p>
+    <%= link_to storyroom_path(storyroom), class: "storyroom_card", style: "background-image: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 50%), url(#{storyroom.universe.photo});" do %>
+      <h2><%= storyroom.title[0..50] %></h2>
+      <div class="card_stats">
+        <p><%= storyroom.universe.title %> </p>
+        <p class="d20"><i class="fa-solid fa-dice-d20"></i> <%= storyroom.storycards.count %></p>
+        <p><i class="fa-solid fa-user"></i> <%= storyroom.storyroom_characters.count %></p>
+      </div>
     <% end %>
   <% end %>
 <% end %>

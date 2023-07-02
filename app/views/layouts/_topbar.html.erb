@@ -1,8 +1,5 @@
 <nav class="topbar">
-  <%= link_to'Assembly', root_path %>
-  <div class="collapse navbar-collapse">
-    <% if user_signed_in? %>
-      <%= button_to 'Logout', destroy_user_session_path, method: :delete %>
-    <% end %>
-  </div>
+  <%= link_to root_path do %>
+  <p>Assembly <i class="fa-solid fa-dice-d20"></i></p>
+  <% end %>
 </nav>

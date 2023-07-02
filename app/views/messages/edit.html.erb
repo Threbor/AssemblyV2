@@ -1,10 +1,12 @@
-<h3>Le récit actuel est : </h3>
-<%= @message.content %>
+<div class="paragraphe_container">
+  <h2>Le morceau de votre récit : </h2>
+  <p><%= @message.content %></p>
 
-<h3>Modifier</h3>
-<div class="message_typing_edit">
-  <%= form_for [@storyroom, @message], url: storyroom_message_path(@storyroom, @message), method: :patch do |f| %>
-    <%= f.text_area :content, id:"messageFieldEdit" %>
-    <%= f.submit "Mettre à jour" %>
-  <% end %>
+  <h2>Modifier</h2>
+  <div class="message_typing_edit">
+    <%= form_for [@storyroom, @message], url: storyroom_message_path(@storyroom, @message), method: :patch do |f| %>
+      <%= f.text_area :content, id:"messageFieldEdit" %>
+      <%= f.submit "Mettre à jour" %>
+    <% end %>
+  </div>
 </div>

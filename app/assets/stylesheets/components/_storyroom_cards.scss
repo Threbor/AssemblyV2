@@ -1,21 +1,75 @@
+
 .storyroom_card {
   display: flex;
   flex-direction: column;
-  background-image: url("https://images.unsplash.com/photo-1682687980961-78fa83781450?ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80");
+  justify-content: flex-end;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 11rem;
   padding: 20px;
   margin: 20px;
   border-radius: 5px;
 
+  position: relative;
+
   & h2 {
-   color: #333;
+   text-align: left;
+   color: #ffffff;
    font-size: 24px;
-   margin-bottom: 10px;
+   margin-bottom: 0;
   }
 
   & p {
-    color: #666;
+    color: #ffffff;
     font-size: 16px;
-    margin-bottom: 10px;
+    margin-bottom: 0;
+  }
+
+  & box-icon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+  }
+
+  & .card_stats {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 0px;
+    position: relative;
+
+    & .d20 {
+      position: absolute;
+      left: 50%;
+    }
+  }
+
+  & .storyroom_universe_btn {
+    margin: 0 1rem;
+    margin-bottom: 0;
+    display: flex;
+    justify-content: space-between;
+
+    & button {
+      color: #bbbbbb;
+      background-color: transparent;
+      border: 1px solid transparent;
+      padding: 1rem;
+      font-size: 1.5rem;
+      transition: all .3s ease-in-out;
+    }
+
+    & button:hover {
+      color: #ffffff;
+    }
+
+    & .selected {
+      color: #ffffff;
+      border-bottom: 1px solid #ffffff;
+
+    }
   }
 
 }

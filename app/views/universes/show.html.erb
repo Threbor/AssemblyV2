@@ -1,59 +1,62 @@
+<%= link_to universes_path, class:"topbar_back_button" do %>
+  <i class="fa-solid fa-angle-left"></i>
+<% end %>
+
 <div class="universe_card" style="background-image: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 75%), url(<%= @universe.photo %>);">
   <h2><%= @universe.title %></h2>
-  <p><%= @universe.description %></p>
+  <p><%= @universe.description[0..500] %></p>
 </div>
 
 
 
-
-<div class="universe_synopses">
-  <h2>Les synopses</h2>
-  <div class="caroussel_btn">
-    <button id="previous-synopse-button">Précédent</button>
-    <button id="random-synopse-button">Aléatoire</button>
-    <button id="next-synopse-button">Suivant</button>
-  </div>
+<div data-controller="universe">
+  <div class="universe_synopses">
+    <h2>Les synopses</h2>
+    <div class="caroussel_btn">
+      <button data-action="universe#previousSynopsis" data-universe-target="previousSynopseButton"><i class="fa-solid fa-angle-left"></i></button>
+      <button data-action="universe#randomSynopsis" data-universe-target="randomSynopseButton"><i class="fa-solid fa-dice-d20"></i></button>
+      <button data-action="universe#nextSynopsis" data-universe-target="nextSynopseButton"><i class="fa-solid fa-angle-right"></i></button>
+    </div>
     <% @synopses.each do |synopse| %>
-      <div class="universe_synopse" data-id="<%= synopse.id %>">
+      <div class="universe_synopse" data-universe-target="universeSynopse" data-id="<%= synopse.id %>">
         <p><%= synopse.description %></p>
       </div>
     <% end %>
-</div>
-
-<div class="universe_characters">
-  <h2>Les personnages à incarner</h2>
-  <div class="caroussel_btn">
-    <button id="previous-character-button">Précédent</button>
-    <button id="random-character-button">Aléatoire</button>
-    <button id="next-character-button">Suivant</button>
   </div>
-  <% @characters.each do |character| %>
-    <div class="universe_character" data-id="<%= character.id %>">
-      <div class="character_top">
-        <div class="character_img" style="background-image: url(<%= character.photo %>);">
-        </div>
-        <div class="character_info">
-          <h3><%= character.name %></h3>
-          <p><%= character.age ? "#{character.age} ans" : "" %></p>
-          <p><em>"<%= character.quotation %>"</em></p>
-        </div>
-      </div>
-      <div class="character_description">
-        <p><%= character.background %></p>
-      </div>
+
+  <div class="universe_characters">
+    <h2>Les personnages à incarner</h2>
+    <div class="caroussel_btn">
+      <button data-action="universe#previousCharacter" data-universe-target="previousCharacterButton"><i class="fa-solid fa-angle-left"></i></button>
+      <button data-action="universe#randomCharacter" data-universe-target="randomCharacterButton"><i class="fa-solid fa-dice-d20"></i></button>
+      <button data-action="universe#nextCharacter" data-universe-target="nextCharacterButton"><i class="fa-solid fa-angle-right"></i></button>
     </div>
-  <% end %>
-</div>
-
-
-<div class="launch_adventure">
-  <%= form_with url: new_storyroom_path, method: :get, id: "storyroom-form" do %>
-    <%= hidden_field_tag :universe_id, @universe.id %>
-    <%= hidden_field_tag :synopse_id, "", id: "synopse-id-field" %>
-    <%= hidden_field_tag :character_id, "", id: "character-id-field" %>
-    <%= button_tag type: "submit", class: "floating-button" do %>
-      <box-icon name='book-bookmark'></box-icon>
+    <% @characters.each do |character| %>
+      <div class="universe_character" data-universe-target="universeCharacter" data-id="<%= character.id %>">
+        <div class="character_top">
+          <div class="character_img" style="background-image: url(<%= character.photo %>);">
+          </div>
+          <div class="character_info">
+            <h3><%= character.name %></h3>
+            <p><%= character.age ? "#{character.age} ans" : "" %></p>
+            <p><em>"<%= character.quotation %>"</em></p>
+          </div>
+        </div>
+        <div class="character_description">
+          <p><%= character.background %></p>
+        </div>
+      </div>
     <% end %>
-  <% end %>
-</div>
+  </div>
 
+  <div class="launch_adventure">
+    <%= form_with url: new_storyroom_path, method: :get, id: "storyroom-form" do %>
+      <%= hidden_field_tag :universe_id, @universe.id %>
+      <%= hidden_field_tag :synopse_id, "", id: "synopse-id-field", "data-universe-target" => "synopseIdField" %>
+      <%= hidden_field_tag :character_id, "", id: "character-id-field", "data-universe-target" => "characterIdField" %>
+      <%= button_tag type: "submit", class: "floating-button" do %>
+        <i class="fa-solid fa-feather"></i>
+      <% end %>
+    <% end %>
+  </div>
+</div>

@@ -1,14 +1,14 @@
 <nav class="navbar">
     <%= link_to universes_path, class: "navbar_item #{current_page?(universes_path) ? "active" : ""}" do %>
-      <box-icon name='planet'></box-icon>
-      <p>Universes</p>
+      <i class="fa-solid fa-globe"></i>
+      <p>Univers</p>
     <% end %>
     <%= link_to storyrooms_path, class: "navbar_item #{current_page?(storyrooms_path) ? "active" : ""}" do %>
-      <box-icon name='conversation' ></box-icon>
-      <p>Storyrooms</p>
+      <i class="fa-solid fa-feather"></i>
+      <p>Récits</p>
     <% end %>
     <%= link_to history_index_path, class: "navbar_item #{current_page?(history_index_path) ? "active" : ""}" do %>
-      <box-icon name='book' ></box-icon>
+      <i class="fa-solid fa-book"></i>
       <p>History</p>
     <% end %>
 </nav>

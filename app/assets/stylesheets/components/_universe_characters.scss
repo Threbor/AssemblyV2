@@ -1,11 +1,17 @@
+.universe_characters {
+  text-align: center;
+  & h2 {
+    margin-bottom: .5rem;
+  }
+}
 
 .universe_character {
   display: none;
   background: #f9f9f9;
   border-radius: 5px;
   box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-  padding: 20px;
-  margin: 20px;
+  padding: 1rem;
+  margin: 1rem;
   width: 80%;
   max-width: 500px;
 }

@@ -1,33 +1,66 @@
 
-.message_current_user {
-  border: 1px solid #333;
-  border-radius: .5rem .5rem 0rem .5rem;
-  margin: 2rem;
-  margin-right: 0rem;
 
-  & p {
-    margin: .5rem;
-  }
+
+.message_bar_container {
+  position: fixed;
+  bottom: 5rem;
+  width: 100%;
+  border-radius: .5rem .5rem 0rem 0rem;
 }
 
-.message_other_user {
-  border-radius: .5rem .5rem .5rem 0rem;
-  margin: 2rem;
-  margin-left: 0rem;
+.message_bar {
+  position: relative;
+  background-color: #f9f9f9;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 1rem;
+  margin-bottom: 0;
+  padding: 1rem 0;
+
+  & .division_bar {
+    position: fixed;
+    bottom: 140px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 3rem;
+    height: 1px;
+    background-color: #333;
+    border-radius: 1rem;
+  }
 }
 
 .message_typing {
   width: 100%;
-  text-align: center;
+  text-align: left;
+  margin-left: 10px;
+
+  & input[type="text"] {
+    width: 270px;
+    height: 2rem;
+    border-radius: 1.5rem;
+    border: 1px solid #333;
+  }
+
+  & button[type="submit"] {
+    height: 40px;
+    width: 40px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    border-radius: 2rem;
+    background-color: transparent;
+    border: 1px solid transparent;
+  }
+
+  & i {
+    font-size: 1.5rem;
+    color: #333;
+  }
+
 
 }
 
-#messageField {
-  width: 60%;
-  height: 1rem;
-  border-radius: .5rem;
-  border: 1px solid #333;
-}
 
 .message_typing_edit {
   width: 100%;
@@ -39,4 +72,68 @@
   height: 5rem;
   border-radius: .5rem;
   border: 1px solid #333;
+}
+
+
+
+.message_current_user {
+  border-bottom: 1px solid #333;
+  border-radius: .5rem .5rem 0rem .5rem;
+  margin: 1rem 4rem;
+
+  margin-right: 1rem;
+
+  position: relative;
+
+  & p {
+    margin: .5rem;
+  }
+
+  & i {
+    position: absolute;
+
+    position: absolute;
+    top: 1rem;
+    left: -2.5rem;
+    transform: translateY(-50%);
+    font-size: 1.2rem;
+    color: #333;
+
+  }
+}
+
+.message_other_user {
+  border-radius: .5rem .5rem .5rem 0rem;
+  margin: 2rem;
+  margin-left: 0rem;
+}
+
+.messages_infos {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  margin: 1rem;
+  margin-bottom: 0;
+  padding: 1rem;
+  padding-bottom: .5rem;
+
+  & p {
+    font-size: 11px;
+    margin: .5rem;
+  }
+
+  & .character_user_picture {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    background-color: #333;
+
+    background-position: center;
+    background-size: cover;
+
+  }
 }

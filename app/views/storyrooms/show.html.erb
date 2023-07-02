@@ -1,58 +1,19 @@
-<div class="universe_card">
-  <h2><%= @title %></h2>
-  <h3><%=  @universe.title %></h3>
-  <p><%=  @universe.description %></p>
-</div>
 
-<h3>Vous incarnez</h3>
-<div class="universe_characters">
-  <% @characters.each do |character| %>
-  <div class="universe_character">
-    <div class="character_img">
+<div data-controller="storyroom" >
+  <div class="storyroom_card" style="background-image: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 75%), url(<%= @universe.photo %>);">
+    <h2><%= @storyroom.title[0..50] %></h2>
+    <p><%= @storyroom.universe.title %></p>
+    <div class="storyroom_universe_btn">
+      <button data-action="storyroom#showStory" data-storyroom-target="story_btn" class="selected" id="story-button"><i class="fa-regular fa-comment-dots"></i></button>
+      <button data-action="storyroom#showLore" data-storyroom-target="lore_btn" id="lore-button"><i class="fa-solid fa-info"></i></button>
     </div>
-    <div class="character_description">
-      <p><%= character.name %></p>
-      <p>"<%= character.quotation %>"</p>
-    </div>
-    <% end %>
   </div>
-</div>
 
-<h5>Racontez successivement un morceau de son histoire dans cet univers avant de tous les assembler pour en faire un récit.</h5>
+  <div data-storyroom-target="story" class="storyroom_story selected">
+    <%= render'storyrooms/story' %>
+  </div>
 
-<h5>Appuyez sur Lancer le D20 pour ajouter un évènement lorsque vous el souhaitez</h5>
-
-<div class="storyroom_messages">
-  <% @timeline_items.each do |item| %>
-    <% if item.is_a? Event %>
-      <div class="event_announcement">
-        <p><b><%= item.word.title %> - D20 : <%= item.dice_value %> - <%= item.description %></b></p>
-      </div>
-    <% elsif item.is_a? Message %>
-      <div class="message_current_user">
-          <p><%= item.content %></p>
-          <% if current_user == item.user %>
-            <%= link_to edit_storyroom_message_path(@storyroom, item), method: :get do %>
-              <box-icon name='edit-alt' ></box-icon>
-            <% end %>
-          <% end %>
-      </div>
-    <% end %>
-  <% end %>
-</div>
-
-<div class="event_counter">
-  <% if @storycards.count > 0 %>
-    <p>Evènements restants : <%= @storycards.count %>
-    <%= button_to 'Lancer le D20', storyroom_events_path(@storyroom), method: :post %></p>
-  <% else %>
-    <h2>Fin</h2>
-  <% end %>
-</div>
-
-<div class="message_typing">
-  <%= form_for [@storyroom, @message] do |f| %>
-    <%= f.text_field :content, id: "messageField"%>
-    <%= f.submit "Raconter" %>
-  <% end %>
+  <div data-storyroom-target="lore" class="storyroom_lore">
+    <%= render'storyrooms/lore' %>
+  </div>
 </div>

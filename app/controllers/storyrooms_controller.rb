@@ -1,5 +1,5 @@
 class StoryroomsController < ApplicationController
-  before_action :authenticate_user!, only: [:index, :show, :create]
+  before_action :authenticate_user!
 
   def index
     @storyrooms = Storyroom.all
@@ -16,7 +16,11 @@ class StoryroomsController < ApplicationController
     @characters = @storyroom.universe.characters
     @words = @storyroom.universe.words
 
-    @timeline_items = (@storyroom.events + @storyroom.messages).sort_by(&:created_at)
+    # astuce en patientant l'intégration d'ajax
+    # @timeline_items = (@storyroom.events + @storyroom.messages).sort_by(&:created_at)
+    @timeline_items = (@storyroom.events + @storyroom.messages).sort_by(&:created_at).reverse
+
+    @storyroom_character = @storyroom.storyroom_characters.first
 
     @message = Message.new
   end
@@ -33,26 +37,79 @@ class StoryroomsController < ApplicationController
 
   def create
     # création de la salle de jeu
-    @storyroom = Storyroom.new(storyroom_params)
+    @synopsis = Synopsis.find(params[:storyroom][:storyroom_synopsis_original_id])
+    @character = Character.find(params[:storyroom][:storyroom_character_original_id])
+    @storyroom = Storyroom.new
+    @universe = Universe.find(params[:storyroom][:universe_id])
+    @storyroom.universe = @universe
     @storyroom.user = current_user
-    # @storyroom.user = current_user
+    @storyroom.title = params[:storyroom][:title]
+    @storyroom.storyroom_synopsis = params[:storyroom][:storyroom_synopsis]
 
-    # création des cartes de mots liés à la salle de jeu
-    @storyroom.universe.words.each do |word|
-      Storycard.create(title: word.title, storyroom: @storyroom)
-    end
+    # création du personnage
+    @storyroom_character = StoryroomCharacter.new()
+    @storyroom_character.name = params[:storyroom][:storyroom_character_name]
+    @storyroom_character.quotation = params[:storyroom][:storyroom_character_quotation]
+    @storyroom_character.background = params[:storyroom][:storyroom_character_background]
+    @storyroom_character.photo = params[:storyroom][:storyroom_character_photo]
 
     if @storyroom.save
+      # création du personnage
+      @storyroom_character.storyroom = @storyroom
+      @storyroom_character.save
+
+      # création des cartes de mots associées au monde
+      @universe.words.each do |word|
+        @storycard = Storycard.new
+        @storycard.title = word.title
+        @storycard.storyroom = @storyroom
+        @storycard.save
+      end
+
+
       redirect_to storyroom_path(@storyroom)
     else
       render :new
     end
   end
 
+  def edit
+    @storyroom = Storyroom.find(params[:id])
+    @title = @storyroom.title
+    @universe = @storyroom.universe
+    @storyroom_synopsis = @storyroom.storyroom_synopsis
+    @storyroom_character = @storyroom.storyroom_characters.first
+  end
+
+  def update
+    @storyroom = Storyroom.find(params[:id])
+    @storyroom.update(
+      title: params[:storyroom][:title],
+      storyroom_synopsis: params[:storyroom][:storyroom_synopsis])
+
+    @storyroom_character = @storyroom.storyroom_characters.first
+    @storyroom_character.update(
+      name: params[:storyroom][:storyroom_character_name],
+      quotation: params[:storyroom][:storyroom_character_quotation],
+      background: params[:storyroom][:storyroom_character_background],
+      photo: params[:storyroom][:storyroom_character_photo]
+    )
+    redirect_to storyroom_path(@storyroom)
+  end
 
   private
 
   def storyroom_params
-    params.require(:storyroom).permit(:title, :universe_id, :storyroom_synopsis, :storyroom_synopsis)
+    params.require(:storyroom).permit(
+      :title,
+      :universe_id,
+      :storyroom_synopsis_original_id,
+      :storyroom_synopsis,
+      :storyroom_character_original_id,
+      :storyroom_character_name,
+      :storyroom_character_quotation,
+      :storyroom_character_background,
+      :storyroom_character_photo
+    )
   end
 end
