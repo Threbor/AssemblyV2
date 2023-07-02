@@ -8,6 +8,16 @@ window.Stimulus   = application
 
 export { application }
 
+// const textArea = document.querySelector('#my-text-area');
+// const navbar = document.querySelector('.navbar');
+
+// textArea.addEventListener('focus', () => {
+//   navbar.classList.add('hidden');
+// });
+
+// textArea.addEventListener('blur', () => {
+//   navbar.classList.remove('hidden');
+// });
 
 
 // caroussel universe show synopses

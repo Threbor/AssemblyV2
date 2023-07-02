@@ -5,34 +5,20 @@ export default class extends Controller {
 
   connect() {
     console.log("messagebar controller connected");
-    // this.messageFieldTarget.focus();
-    // astuce en patientant l'intégration d'ajax
-
-    // window.scrollTo({
-    //   top: document.body.scrollHeight,
-    //   behavior: 'smooth'
-    // });
+    // this.messageFieldTarget.addEventListener('focus', this.hideMessageBar);
+    // this.messageFieldTarget.addEventListener('blur', this.showMessageBar);
   }
 
-  // sleepingScrollDown () {
-  //   setTimeout(() => {
-  //     window.scrollTo({
-  //       top: document.body.scrollHeight,
-  //       behavior: 'smooth'
-  //     });
-  //     this.messageFieldTarget.focus();
-  //   }, 500);
+  // disconnect() {
+  //   this.messageFieldTarget.removeEventListener('focus', this.hideMessageBar);
+  //   this.messageFieldTarget.removeEventListener('blur', this.showMessageBar);
   // }
 
-  // scrollDown(event) {
-  //   console.log("scrolling down");
-  //   this.sleepingScrollDown();
-  //   window.scrollTo({
-  //     top: document.body.scrollHeight,
-  //     behavior: 'smooth'
-  //   })
+  // hideMessageBar = () => {
+  //   document.getElementById('message_bar').classList.add('hidden');
   // }
 
-
-
+  // showMessageBar = () => {
+  //   document.getElementById('message_bar').classList.remove('hidden');
+  // }
 }
