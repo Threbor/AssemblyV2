@@ -4,8 +4,8 @@ export default class extends Controller {
   static targets = [ "messageField" ];
 
   connect() {
-    console.log("messagebarf controller connected");
-    this.messageFieldTarget.focus();
+    console.log("messagebar controller connected");
+    // this.messageFieldTarget.focus();
     // astuce en patientant l'intégration d'ajax
 
     // window.scrollTo({

@@ -21,3 +21,6 @@ application.register("universe", UniverseController)
 
 import StorybarController from "./storybar_controller"
 application.register("storybar", StorybarController)
+
+import ConfirmDeleteController from "./confirm-delete_controller"
+application.register("confirm-delete", ConfirmDeleteController)

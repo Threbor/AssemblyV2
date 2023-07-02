@@ -15,11 +15,22 @@
     position: relative;
   }
 
+  & button {
+    position: relative;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    width: 56px;
+    height: 56px;
+
+    & i {
+      position: absolute;
+      transform: translate(-50%, -50%);
+    }
+  }
+
   & i {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
     font-size: 1.5rem;
     box-shadow: 0 0 1rem rgba(0,0,0,0.1);
     padding: 1rem;

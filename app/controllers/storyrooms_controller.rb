@@ -97,6 +97,18 @@ class StoryroomsController < ApplicationController
     redirect_to storyroom_path(@storyroom)
   end
 
+  def destroy
+    @storyroom = Storyroom.find(params[:id])
+    if @storyroom.destroy
+      flash[:notice] = "Storyroom has been deleted successfully."
+    else
+      flash[:alert] = "There was an error deleting the Storyroom."
+    end
+    redirect_to storyrooms_path
+  end
+
+
+
   private
 
   def storyroom_params
