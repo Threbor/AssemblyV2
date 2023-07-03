@@ -51,6 +51,8 @@ gem 'font-awesome-sass', '~> 6.4.0'
 
 gem 'bootstrap', '~> 5.0'
 
+gem 'turbolinks', '~> 5'
+
 
 # Use Sass to process CSS
 # gem "sassc-rails"

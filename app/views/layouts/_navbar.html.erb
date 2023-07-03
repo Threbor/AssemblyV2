@@ -1,4 +1,4 @@
-<nav class="navbar">
+<nav class="navbar <%= 'hidden' if hidden %>">
     <%= link_to universes_path, class: "navbar_item #{current_page?(universes_path) ? "active" : ""}" do %>
       <i class="fa-solid fa-globe"></i>
       <p>Univers</p>
