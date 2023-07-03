@@ -6,6 +6,11 @@
   bottom: 4.5rem;
   width: 100%;
   border-radius: .5rem .5rem 0rem 0rem;
+  transition: ease-in-out 0.3s;
+}
+
+.focused {
+  bottom: 0rem;
 }
 
 .message_bar {
