@@ -17,10 +17,8 @@
   <body>
     <%= render'layouts/topbar' %>
     <%= yield %>
-    <%# message notice %>
-      <%# <% flash.each do |name, msg| %>
-        <%# <><%= content_tag :div, msg, class: name %>
-      <%# <% end %>
-    <%= render'layouts/navbar' %>
+
+      <%= render'layouts/navbar',
+      hidden: (controller_name == "storyrooms" && ["show", "new", "edit"].include?(action_name)) %>
   </body>
 </html>

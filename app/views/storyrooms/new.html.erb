@@ -2,18 +2,24 @@
   <i class="fa-solid fa-angle-left"></i>
 <% end %>
 
+
 <div class="universe_card" style="background-image: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 75%), url(<%= @universe.photo %>);">
   <h2>Votre récit s'apprête à débuter ...</h2>
   <p><%= @universe.title %> - <%= @universe.description.split('.').first %></p>
 </div>
 
-  <div class="infos_container">
-    <p>Modifiez les élements si vous le souhaitez.</p>
-  </div>
-
 <div class="storyroom_newtail">
   <%= form_with model: @storyroom do |form| %>
     <%= form.hidden_field :universe_id, value: @universe.id %>
+
+    <div>
+      <%= form.label :title, "Nommez votre votre récit" %>
+      <%= form.text_field :title, value: 'L\'histoire de ...'%>
+    </div>
+
+  <div class="paragraphe_container">
+    <p>Modifiez les élements ci-dessous si vous le souhaitez.</p>
+  </div>
 
     <div>
       <%= form.label :storyroom_synopsis, "Synopsis" %>
@@ -28,11 +34,6 @@
       <%= form.text_field :storyroom_character_quotation, value: @character.quotation %>
       <%= form.text_area :storyroom_character_background, value: @character.background, rows: 8 %>
       <%= form.hidden_field :storyroom_character_photo, value: @character.photo %>
-    </div>
-
-    <div>
-      <%= form.label :title, "Nommez votre de votre récit" %>
-      <%= form.text_field :title, value: 'L\'histoire de ...'%>
     </div>
 
     <%= button_tag(type: 'submit') do %>

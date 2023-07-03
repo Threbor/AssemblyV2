@@ -36,17 +36,14 @@
   <% end %>
 </div>
 
-<div class="message_bar_container">
+<div class="message_bar_container focused">
   <div class="message_bar" data-controller="messagebar">
     <div class="division_bar">
     </div>
     <div class="event_counter">
       <% if @storycards.count > 0 %>
         <p><%= @storycards.count %></p>
-        <%# en attendant AJAX %>
-        <%# <%= button_to storyroom_events_path(@storyroom), method: :post, data: {action: "messagebar#scrollDown"} do %>
         <%= button_to storyroom_events_path(@storyroom), method: :post do %>
-        <%#  %>
           <i class="fa-solid fa-dice-d20"></i>
         <% end %>
       <% else %>
@@ -57,10 +54,7 @@
     <div class="message_typing">
       <%= form_for [@storyroom, @message] do |f| %>
         <%= f.text_field :content, data: { messagebar_target: "messageField"} %>
-          <%# en attendant AJAX %>
-        <%# <%= button_tag(type: 'submit', data: { action: "messagebar#scrollDown" }) do %>
         <%= button_tag(type: 'submit') do %>
-          <%#  %>
           <i class="fa-solid fa-feather"></i>
         <% end %>
       <% end %>
