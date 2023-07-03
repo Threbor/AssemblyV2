@@ -1,12 +1,18 @@
 
 <div class="paragraphe_container">
-  <p>Bonjour et bienvenue dans le prototype de assembly , un super jeu de role pour s’entrainer à raconter des histoires !!</p>
+  <h2>Bienvenue !</h2>
+  <p>Assembly est un espace pour créer et raconter des histoires !</p>
+  <p>Notez que notre plateforme est en cours de développement. Des modifications
+  de la base de données pourraient entraîner la perte de vos récits en cours.
+  Merci de votre compréhension.</p>
 
-<% if user_signed_in? %>
-    <%= button_to destroy_user_session_path, method: :delete do %>
-      <i class="fa-solid fa-arrow-right-from-bracket"></i>
-    <% end %>
+  <% if user_signed_in? %>
+    <p>Vous êtes connecté en tant que <%= current_user.username %>.</p>
+      <%= button_to destroy_user_session_path, method: :delete do %>
+        <i class="fa-solid fa-arrow-right-from-bracket"></i>
+      <% end %>
   <% else %>
+    <p>Vous devez vous enregistrer pour pouvoir utiliser l'application.</p>
     <%= link_to 'Sign in', user_session_path %>
-<% end %>
+  <% end %>
 </div>

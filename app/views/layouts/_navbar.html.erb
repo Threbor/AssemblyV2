@@ -1,6 +1,6 @@
 <nav class="navbar <%= 'hidden' if hidden %>">
     <%= link_to universes_path, class: "navbar_item #{current_page?(universes_path) ? "active" : ""}" do %>
-      <i class="fa-solid fa-globe"></i>
+      <i class="fa-solid fa-earth-europe"></i>
       <p>Univers</p>
     <% end %>
     <%= link_to storyrooms_path, class: "navbar_item #{current_page?(storyrooms_path) ? "active" : ""}" do %>
@@ -12,3 +12,4 @@
       <p>Historique</p>
     <% end %>
 </nav>
+
