@@ -7,6 +7,7 @@ class User < ApplicationRecord
   has_many :storyroom_user_associations
   has_many :storyrooms, through: :storyroom_user_associations
   has_many :storyrooms
+  has_many :storyroom_characters
   validates :username, presence: true
   validates :email, presence: true, uniqueness: true
   validates :password, presence: true

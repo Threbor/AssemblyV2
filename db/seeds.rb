@@ -675,7 +675,7 @@ Character.create(
 Character.create(
   universe_id: Universe.find_by(title: 'Atlantide').id,
   photo: 'https://i.pinimg.com/564x/ef/96/db/ef96db5d0dd97ce7adde9286c4abbff4.jpg',
-  name: 'Calder "The Deep Explorer"',
+  name: 'Calder',
   quotation: "Chaque grotte inexplorée est une histoire en attente d'être découverte.",
   background: "Calder, surnommé 'The Deep Explorer', est un aventurier courageux qui a
   consacré sa vie à explorer les profondeurs inconnues d'Atlantide. Il est toujours
@@ -685,3 +685,76 @@ Character.create(
 puts 'Creating Characters for Atlantide...Done!'
 
 puts ''
+
+
+# seeds test users
+User.create!(
+  email: 'hello@mail.com',
+  password: '123456',
+  username: 'hellocopainooooo',
+)
+
+puts 'Creating test user characters...'
+Storyroom.create!(
+  user_id: User.find_by(username:'Hugotesteur').id,
+  universe_id: Universe.find_by(title: 'Atlantide').id,
+  title: 'Test Storyroom 1',
+  storyroom_synopsis: 'This is a test storyroom.',
+)
+
+StoryroomCharacter.create(
+  storyroom_id: Storyroom.find_by(title: 'Test Storyroom 1').id,
+  user_id: User.find_by(username: 'Hugotesteur').id,
+  photo: 'https://i.pinimg.com/564x/ef/96/db/ef96db5d0dd97ce7adde9286c4abbff4.jpg',
+  name: 'Calder',
+  quotation: "Chaque grotte inexplorée est une histoire en attente d'être découverte.",
+  background: "Calder, surnommé 'The Deep Explorer', est un aventurier courageux qui a
+  consacré sa vie à explorer les profondeurs inconnues d'Atlantide. Il est toujours
+  prêt pour une nouvelle aventure."
+)
+puts'reating test user characters...Done!'
+
+StoryroomCharacter.create(
+  storyroom_id: Storyroom.find_by(title:'Test Storyroom 1').id,
+  user_id: User.find_by(username: 'hellocopainooooo').id,
+  photo: 'https://i.pinimg.com/564x/ef/96/db/ef96db5d0dd97ce7adde9286c4abbff4.jpg',
+  name: 'Calder',
+  quotation: "Chaque grotte inexplorée est une histoire en attente d'être découverte.",
+  background: "Calder, surnommé 'The Deep Explorer', est un aventurier courageux qui a
+  consacré sa vie à explorer les profondeurs inconnues d'Atlantide. Il est toujours
+  prêt pour une nouvelle aventure."
+)
+puts'reating test user characters...Done!'
+
+
+
+
+
+Storyroom.create!(
+  user_id: User.find_by(username: 'hellocopainooooo').id,
+  universe_id: Universe.find_by(title: 'Star Wars').id,
+  title: 'Test Storyroom 2',
+  storyroom_synopsis: 'This is a test storyroom.',
+)
+
+StoryroomCharacter.create(
+  storyroom_id: Storyroom.find_by(title: 'Test Storyroom 2').id,
+  user_id: User.find_by(username: 'hellocopainooooo').id,
+  photo: 'https://i.pinimg.com/564x/ef/96/db/ef96db5d0dd97ce7adde9286c4abbff4.jpg',
+  name: 'Calder',
+  quotation: "Chaque grotte inexplorée est une histoire en attente d'être découverte.",
+  background: "Calder, surnommé 'The Deep Explorer', est un aventurier courageux qui a
+  consacré sa vie à explorer les profondeurs inconnues d'Atlantide. Il est toujours
+  prêt pour une nouvelle aventure."
+)
+
+StoryroomCharacter.create(
+  storyroom_id: Storyroom.find_by(title: 'Test Storyroom 2').id,
+  user_id: User.find_by(username: 'Hugotesteur').id,
+  photo: 'https://i.pinimg.com/564x/ef/96/db/ef96db5d0dd97ce7adde9286c4abbff4.jpg',
+  name: "c'est mon copain là!",
+  quotation: "Chaque grotte inexplorée est une histoire en attente d'être découverte.",
+  background: "Calder, surnommé 'The Deep Explorer', est un aventurier courageux qui a
+  consacré sa vie à explorer les profondeurs inconnues d'Atlantide. Il est toujours
+  prêt pour une nouvelle aventure."
+)

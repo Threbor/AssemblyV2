@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_07_02_164724) do
+ActiveRecord::Schema[7.0].define(version: 2023_07_04_182755) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -64,7 +64,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_02_164724) do
     t.integer "age"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id"
     t.index ["storyroom_id"], name: "index_storyroom_characters_on_storyroom_id"
+    t.index ["user_id"], name: "index_storyroom_characters_on_user_id"
   end
 
   create_table "storyroom_user_associations", force: :cascade do |t|
@@ -149,6 +151,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_02_164724) do
   add_foreign_key "messages", "users"
   add_foreign_key "storycards", "storyrooms"
   add_foreign_key "storyroom_characters", "storyrooms"
+  add_foreign_key "storyroom_characters", "users"
   add_foreign_key "storyroom_user_associations", "storyrooms"
   add_foreign_key "storyroom_user_associations", "users"
   add_foreign_key "storyrooms", "universes"

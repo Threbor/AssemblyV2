@@ -24,3 +24,9 @@ application.register("storybar", StorybarController)
 
 import ConfirmDeleteController from "./confirm-delete_controller"
 application.register("confirm-delete", ConfirmDeleteController)
+
+import StoryroomCharactersController from "./storyroom-characters_controller"
+application.register("storyroom-characters", StoryroomCharactersController)
+
+import StoryroomIndexController from "./storyroom-index_controller"
+application.register("storyroom-index", StoryroomIndexController)

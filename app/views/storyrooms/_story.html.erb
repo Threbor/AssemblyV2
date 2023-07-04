@@ -18,6 +18,7 @@
         <p><b><%= item.description %></b></p>
       </div>
     <% elsif item.is_a? Message %>
+    <%# les messages ---------------------------------------- %>
         <div class="messages_infos">
           <p><%= item.created_at.strftime("%d %B %Y, %H:%M") %></p>
           <div class="character_user_picture" style="background-image: url(<%= @storyroom_character.photo %>);">
@@ -25,12 +26,16 @@
           <p><%= @storyroom_character.name %></p>
         </div>
           <% if current_user == item.user %>
-      <div class="message_current_user">
-          <p><%= item.content %></p>
-            <%= link_to edit_storyroom_message_path(@storyroom, item), method: :get do %>
-              <i class="fa-regular fa-pen-to-square"></i>
-            <% end %>
-      </div>
+            <div class="message_current_user">
+                <p><%= item.content %></p>
+                <%= link_to edit_storyroom_message_path(@storyroom, item), method: :get do %>
+                  <i class="fa-regular fa-pen-to-square"></i>
+                <% end %>
+            </div>
+          <% else %>
+            <div class="message_other_user">
+              <p><%= item.content %></p>
+            </div>
           <% end %>
     <% end %>
   <% end %>

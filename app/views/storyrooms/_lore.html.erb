@@ -18,33 +18,31 @@
 </div>
 
 <div class="universe_characters">
-  <h2>Le personnage</h2>
-  <div class="universe_character selected">
-    <div class="character_top">
-            <div class="character_img" style="background-image: url(<%= @storyroom.storyroom_characters.first.photo %>);">
-            </div>
-            <div class="character_info">
-              <h3><%= @storyroom.storyroom_characters.first.name %></h3>
-              <p><%= @storyroom.storyroom_characters.first.age ? "#{@storyroom.storyroom_characters.first.age} ans" : "" %></p>
-              <p><em>"<%= @storyroom.storyroom_characters.first.quotation %>"</em></p>
-            </div>
-          </div>
-          <div class="character_description">
-            <p><%= @storyroom.storyroom_characters.first.background %></p>
-          </div>
+  <% if @storyroom.storyroom_characters.count == 1 %>
+    <h2>Le personnage</h2>
+  <% else %>
+    <h2>Les personnages</h2>
+  <% end %>
+  <% @storyroom.storyroom_characters.each do | storyroom_character | %>
+    <div class="universe_character selected">
+      <div class="character_top">
+        <div class="character_img" style="background-image: url(<%= storyroom_character.photo %>);">
         </div>
+        <div class="character_info">
+          <h3><%= storyroom_character.name %></h3>
+          <p><em>"<%= storyroom_character.quotation %>"</em></p>
+        </div>
+      </div>
+      <div class="character_description">
+        <p><%= storyroom_character.background %></p>
+      </div>
+      <p>hello</p>
+    </div>
+  <% end %>
   </div>
+<div class="paragraphe_container">
+  <%= link_to new_storyroom_storyroom_character_path(@storyroom) do%>
+    <i class="fa-solid fa-user-plus"></i>
+  <% end %>
 </div>
-
-<div class="universe_characters selected">
-  <% @characters.each do |character| %>
-  <div class="universe_character">
-    <div class="character_img">
-    </div>
-    <div class="character_description">
-      <p><%= character.name %></p>
-      <p>"<%= character.quotation %>"</p>
-    </div>
-    <% end %>
-  </div>
 </div>
