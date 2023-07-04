@@ -1,0 +1,57 @@
+<%= link_to storyroom_path(@storyroom), class:"topbar_back_button" do %>
+  <i class="fa-solid fa-angle-left"></i>
+<% end %>
+
+<div class="storyroom_card" style="background-image: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 75%), url(<%= @universe.photo %>);">
+  <h2><%= @storyroom.title[0..50] %></h2>
+  <p><%= @storyroom.universe.title %></p>
+  <div class="storyroom_universe_btn">
+  </div>
+</div>
+
+<p>afichage des perso aléatoires</p>
+
+<div data-controller="storyroom-characters">
+  <div class="universe_characters">
+    <h2>Les personnages à incarner</h2>
+    <div class="caroussel_btn">
+      <button data-action="storyroom-characters#previousCharacter" data-storyroom-characters-target="previousCharacterButton"><i class="fa-solid fa-angle-left"></i></button>
+      <button data-action="storyroom-characters#randomCharacter" data-storyroom-characters-target="randomCharacterButton"><i class="fa-solid fa-dice-d20"></i></button>
+      <button data-action="storyroom-characters#nextCharacter" data-storyroom-characters-target="nextCharacterButton"><i class="fa-solid fa-angle-right"></i></button>
+    </div>
+    <% @characters.each do |character| %>
+      <div class="universe_character" data-storyroom-characters-target="universeCharacter" data-id="<%= character.id %>">
+        <div class="character_top">
+          <div class="character_img" style="background-image: url(<%= character.photo %>);">
+          </div>
+          <div class="character_info">
+            <h3><%= character.name %></h3>
+            <p><%= character.age ? "#{character.age} ans" : "" %></p>
+            <p><em>"<%= character.quotation %>"</em></p>
+          </div>
+        </div>
+        <div class="character_description">
+          <p><%= character.background %></p>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <div class="paragraphe_container">
+    <p>select by user name</p>
+
+      <div class="invite_user">
+        <%= form_with url: storyroom_storyroom_characters_path(@storyroom), method: :post, id: "storyroom-form" do %>
+          <%= text_field_tag :username, nil, label: "username" %>
+          <%= hidden_field_tag :character_id, "", id: "character-id-field", "data-storyroom-characters-target" => "characterIdField" %>
+          <%= button_tag type: "submit", class: "floating-button" do %>
+            <i class="fa-solid fa-user-plus"></i>
+          <% end %>
+        <% end %>
+      </div>
+
+    <h2>Suggestions</h2>
+    <% @close_users.each do |close_user| %>
+      <p><%= close_user.username %></p>
+    <% end %>
+  </div>
+</div>

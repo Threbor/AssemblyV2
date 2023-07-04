@@ -1,0 +1,2 @@
+module StoryroomCharactersHelper
+end

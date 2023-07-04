@@ -112,6 +112,15 @@
   border-radius: .5rem .5rem .5rem 0rem;
   margin: 2rem;
   margin-left: 0rem;
+  border-bottom: 1px solid #333;
+  width: 80%;
+
+
+  position: relative;
+
+  & p {
+    margin: .5rem;
+  }
 }
 
 .messages_infos {

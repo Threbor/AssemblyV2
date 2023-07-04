@@ -2,7 +2,11 @@ class StoryroomsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @storyrooms = Storyroom.all
+    @storyrooms = Storyroom.where(user: current_user)
+    @groups = []
+    current_user.storyroom_characters.each do |storyroom_character|
+      @groups << storyroom_character.storyroom if storyroom_character.storyroom.user != current_user
+    end
 
   end
 
