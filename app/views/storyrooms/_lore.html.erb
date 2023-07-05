@@ -35,7 +35,7 @@
           <h3>
             <%= storyroom_character.name %>
             <% if storyroom_character.user == @storyroom.user %>
-              <i class="fa-solid fa-crown"></i>
+              <i class="fa-solid fa-crown" id="owner_crown"></i>
             <% end %>
           </h3>
           <p><em>"<%= storyroom_character.quotation %>"</em></p>
@@ -43,7 +43,9 @@
       </div>
       <div class="character_description">
         <p><%= storyroom_character.background %></p>
+        <p>- <%= storyroom_character.user.username %> -</p>
       </div>
+      <div class="manage_character_btn">
         <% if storyroom_character.user == current_user %>
           <% if storyroom_character.user != @storyroom.user %>
             <%= button_to storyroom_storyroom_character_path(@storyroom, storyroom_character), method: :delete, data: { confirm: 'Are you sure?' } do %>
@@ -58,10 +60,11 @@
             <i class="fa-solid fa-skull-crossbones"></i>
           <% end %>
         <% end %>
+      </div>
     </div>
   <% end %>
   </div>
-<div class="paragraphe_container">
+<div class="paragraphe_container" id="add_user">
   <%= link_to new_storyroom_storyroom_character_path(@storyroom) do%>
     <i class="fa-solid fa-user-plus"></i>
   <% end %>

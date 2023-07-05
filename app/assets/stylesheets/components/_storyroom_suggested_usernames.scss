@@ -1,0 +1,16 @@
+.suggested_usernames {
+  color: #999;
+  width: 70%;
+  font-size: 0.8em;
+  margin-left: 0.5em;
+  text-decoration: none;
+  position: relative;
+  font-size: 1rem;
+  // transition: all .3s ease-in-out;
+
+  & .selected {
+    text-decoration: underline;
+    background-color: rgba(0, 255, 38, 0.35);
+    box-shadow: 0 0 10px rgba(0, 255, 38, 0.1);
+  }
+}

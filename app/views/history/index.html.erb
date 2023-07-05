@@ -1,3 +1,51 @@
-<div class="paragraphe_container">
-  <p>Cette fonctionnalité n'a pas encore été développée</p>
+<div data-controller="storyroom-index" class="storyroom_index">
+  <div class="storyroom_index_btn">
+    <button data-action="storyroom-index#showOwner" data-storyroom-index-target="owner_btn" class="selected" id="owner-button"><i class="fa-solid fa-crown"></i></button>
+    <button data-action="storyroom-index#showGroups" data-storyroom-index-target="groups_btn" id="groups-button"><i class="fa-solid fa-user-group"></i></button>
+  </div>
+
+
+  <div data-storyroom-index-target="owner" class="owner selected">
+    <% if @ended_stories.empty? %>
+      <div class="paragraphe_container">
+        <p>Vous avez encore des récits à conter !<br><i class="fa-solid fa-feather"></i></p>
+      </div>
+    <% end %>
+    <% @ended_stories.each do |storyroom| %>
+      <%= link_to storyroom_path(storyroom), class: "storyroom_card", style: "background-image: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 50%), url(#{storyroom.universe.photo});" do %>
+        <h2><%= storyroom.title[0..50] %></h2>
+        <div class="card_stats">
+          <p><%= storyroom.universe.title %> </p>
+          <% if storyroom.storyroom_characters.count <= 1 %>
+            <p><i class="fa-solid fa-user"></i> <%= storyroom.storyroom_characters.count %></p>
+          <% else %>
+            <p><i class="fa-solid fa-user-group"></i> <%= storyroom.storyroom_characters.count %></p>
+          <% end %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+
+  <div data-storyroom-index-target="groups" class="groups">
+      <% if @ended_stories_groups.empty? %>
+        <div class="paragraphe_container">
+          <p>Partagez votre "username" pour être invité dans d'autres récits</p>
+        </div>
+      <% end %>
+      <% @ended_stories_groups.each do |group| %>
+        <%= link_to storyroom_path(group), class: "storyroom_card", style: "background-image: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 50%), url(#{group.universe.photo});" do %>
+          <h2><%= group.title[0..50] %></h2>
+          <div class="card_stats">
+            <p><%= group.universe.title %> </p>
+            <% if group.storyroom_characters.count <= 1 %>
+              <p><i class="fa-solid fa-user"></i> <%= group.storyroom_characters.count %></p>
+            <% else %>
+              <p><i class="fa-solid fa-user-group"></i> <%= group.storyroom_characters.count %></p>
+            <% end %>
+          </div>
+      <% end %>
+    <% end %>
+  </div>
+
+
 </div>

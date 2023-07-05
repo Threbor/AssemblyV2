@@ -29,15 +29,57 @@ puts 'Creating seeds'
 
 puts ''
 
-puts 'Creating User Hugotesteur...'
+puts 'Creating Users...'
 
 User.create(
   email: 'hugo@mail.com',
   password: '123456',
   username: 'Hugotesteur'
 )
+# seeds test users
+User.create!(
+  email: 'alpha@mail.com',
+  password: '123456',
+  username: 'alpha'
+)
 
-puts 'Creating User Hugotesteur...Done!'
+User.create!(
+  email: 'bravo@mail.com',
+  password: '123456',
+  username: 'bravo'
+)
+
+User.create!(
+  email: 'charlie@mail.com',
+  password: '123456',
+  username: 'charlie'
+)
+
+User.create!(
+  email: 'delta@mail.com',
+  password: '123456',
+  username: 'delta'
+)
+
+User.create!(
+  email: 'echo@mail.com',
+  password: '123456',
+  username: 'echo'
+)
+
+User.create!(
+  email: 'foxtrot@mail.com',
+  password: '123456',
+  username: 'foxtrot'
+)
+
+User.create!(
+  email: 'golf@mail.com',
+  password: '123456',
+  username: 'golf'
+)
+
+puts 'Creating Users...Done!'
 
 puts ''
 
@@ -256,82 +298,82 @@ puts 'Creating Characters for Neon Shadows...Done!'
 puts ''
 
 
-# Universe 3 - Realm of Ethereal Dawn
+# Universe 3 - Ethereal
 
 puts ''
 
-puts 'Creating the Universe of Realm of Ethereal Dawn...'
+puts 'Creating the Universe of Ethereal...'
 Universe.create(
-  title: 'Realm of Ethereal Dawn',
+  title: 'Ethereal',
   description: "Un royaume où la magie et la mythologie s'entremêlent avec la réalité.
   De nobles chevaliers, de mystérieux sorciers, de féroces dragons et d'anciens secrets
   attendent ceux qui osent s'aventurer dans cet univers enchanteur.",
   photo: 'https://cdn.midjourney.com/92cbb7e4-07e4-4541-8a24-1b0238aee03a/0_1.png'
 )
 
-puts 'Creating the Universe of Realm of Ethereal Dawn...Done!'
+puts 'Creating the Universe of Ethereal...Done!'
 
 puts ''
 
-puts 'Creating synopses for Realm of Ethereal Dawn...'
+puts 'Creating synopses for Ethereal...'
 Synopsis.create(
-  universe_id: Universe.find_by(title: 'Realm of Ethereal Dawn').id,
+  universe_id: Universe.find_by(title: 'Ethereal').id,
   description: "Un ancien dragon a été réveillé de son sommeil millénaire, menaçant
   le royaume avec sa rage destructrice. Les héros doivent entreprendre une quête
   périlleuse pour retrouver l'Épée de l'Aube Éthérée, le seul artefact capable
   de vaincre le dragon."
 )
 Synopsis.create(
-  universe_id: Universe.find_by(title: 'Realm of Ethereal Dawn').id,
+  universe_id: Universe.find_by(title: 'Ethereal').id,
   description: "Le Roi a été ensorcelé par une force maléfique inconnue. Les héros
   sont chargés de parcourir le royaume, de combattre divers monstres et de percer
   le secret de la malédiction pour sauver leur souverain."
 )
 Synopsis.create(
-  universe_id: Universe.find_by(title: 'Realm of Ethereal Dawn').id,
+  universe_id: Universe.find_by(title: 'Ethereal').id,
   description: "Une éclipse éternelle a obscurci le royaume, et avec elle, des
   créatures de l'ombre sont apparues. Les héros doivent trouver un moyen de ramener
   la lumière et de vaincre les ténèbres."
 )
-puts 'Creating synopses for Realm of Ethereal Dawn...Done!'
+puts 'Creating synopses for Ethereal...Done!'
 
 puts ''
 
-puts 'Creating words for Realm of Ethereal Dawn...'
+puts 'Creating words for Ethereal...'
 
 # Mots lambda
 
-Word.create(universe_id: Universe.find_by(title: 'Realm of Ethereal Dawn').id, title: 'Tragédie')
-Word.create(universe_id: Universe.find_by(title: 'Realm of Ethereal Dawn').id, title: 'Révélation')
-Word.create(universe_id: Universe.find_by(title: 'Realm of Ethereal Dawn').id, title: 'Intrigue')
-Word.create(universe_id: Universe.find_by(title: 'Realm of Ethereal Dawn').id, title: 'Vengeance')
-Word.create(universe_id: Universe.find_by(title: 'Realm of Ethereal Dawn').id, title: 'Triomphe')
-Word.create(universe_id: Universe.find_by(title: 'Realm of Ethereal Dawn').id, title: 'Défaite')
-Word.create(universe_id: Universe.find_by(title: 'Realm of Ethereal Dawn').id, title: 'Sacrifice')
-Word.create(universe_id: Universe.find_by(title: 'Realm of Ethereal Dawn').id, title: 'Victoire')
-Word.create(universe_id: Universe.find_by(title: 'Realm of Ethereal Dawn').id, title: 'Défi')
-Word.create(universe_id: Universe.find_by(title: 'Realm of Ethereal Dawn').id, title: 'Naissance')
+Word.create(universe_id: Universe.find_by(title: 'Ethereal').id, title: 'Tragédie')
+Word.create(universe_id: Universe.find_by(title: 'Ethereal').id, title: 'Révélation')
+Word.create(universe_id: Universe.find_by(title: 'Ethereal').id, title: 'Intrigue')
+Word.create(universe_id: Universe.find_by(title: 'Ethereal').id, title: 'Vengeance')
+Word.create(universe_id: Universe.find_by(title: 'Ethereal').id, title: 'Triomphe')
+Word.create(universe_id: Universe.find_by(title: 'Ethereal').id, title: 'Défaite')
+Word.create(universe_id: Universe.find_by(title: 'Ethereal').id, title: 'Sacrifice')
+Word.create(universe_id: Universe.find_by(title: 'Ethereal').id, title: 'Victoire')
+Word.create(universe_id: Universe.find_by(title: 'Ethereal').id, title: 'Défi')
+Word.create(universe_id: Universe.find_by(title: 'Ethereal').id, title: 'Naissance')
 
 # Mots spécifiques
 
-Word.create(universe_id: Universe.find_by(title: 'Realm of Ethereal Dawn').id, title: 'Chevalier')
-Word.create(universe_id: Universe.find_by(title: 'Realm of Ethereal Dawn').id, title: 'Sorcier')
-Word.create(universe_id: Universe.find_by(title: 'Realm of Ethereal Dawn').id, title: 'Dragon')
-Word.create(universe_id: Universe.find_by(title: 'Realm of Ethereal Dawn').id, title: 'Artefact')
-Word.create(universe_id: Universe.find_by(title: 'Realm of Ethereal Dawn').id, title: 'Malédiction')
-Word.create(universe_id: Universe.find_by(title: 'Realm of Ethereal Dawn').id, title: 'Éclipse')
-Word.create(universe_id: Universe.find_by(title: 'Realm of Ethereal Dawn').id, title: 'Royaume')
-Word.create(universe_id: Universe.find_by(title: 'Realm of Ethereal Dawn').id, title: 'Monstre')
-Word.create(universe_id: Universe.find_by(title: 'Realm of Ethereal Dawn').id, title: 'Lumière')
-Word.create(universe_id: Universe.find_by(title: 'Realm of Ethereal Dawn').id, title: 'Ténèbres')
+Word.create(universe_id: Universe.find_by(title: 'Ethereal').id, title: 'Chevalier')
+Word.create(universe_id: Universe.find_by(title: 'Ethereal').id, title: 'Sorcier')
+Word.create(universe_id: Universe.find_by(title: 'Ethereal').id, title: 'Dragon')
+Word.create(universe_id: Universe.find_by(title: 'Ethereal').id, title: 'Artefact')
+Word.create(universe_id: Universe.find_by(title: 'Ethereal').id, title: 'Malédiction')
+Word.create(universe_id: Universe.find_by(title: 'Ethereal').id, title: 'Éclipse')
+Word.create(universe_id: Universe.find_by(title: 'Ethereal').id, title: 'Royaume')
+Word.create(universe_id: Universe.find_by(title: 'Ethereal').id, title: 'Monstre')
+Word.create(universe_id: Universe.find_by(title: 'Ethereal').id, title: 'Lumière')
+Word.create(universe_id: Universe.find_by(title: 'Ethereal').id, title: 'Ténèbres')
 
-puts 'Creating words for Realm of Ethereal Dawn...Done!'
+puts 'Creating words for Ethereal...Done!'
 
 puts ''
 
-puts 'Creating Characters for Realm of Ethereal Dawn...'
+puts 'Creating Characters for Ethereal...'
 Character.create(
-  universe_id: Universe.find_by(title: 'Realm of Ethereal Dawn').id,
+  universe_id: Universe.find_by(title: 'Ethereal').id,
   photo: 'https://i.pinimg.com/564x/d0/87/d9/d087d9c030d8a5bd1d4a8cccf5e0966c.jpg',
   name: 'Sir Roland',
   quotation: 'Je suis le bouclier qui protège les faibles.',
@@ -341,7 +383,7 @@ Character.create(
 )
 
 Character.create(
-  universe_id: Universe.find_by(title: 'Realm of Ethereal Dawn').id,
+  universe_id: Universe.find_by(title: 'Ethereal').id,
   photo: 'https://i.pinimg.com/564x/4d/2c/ad/4d2cad4911fd405099cdc226795ef147.jpg',
   name: 'Evelyn',
   quotation: 'La vérité se cache toujours derrière le voile de l\'illusion.',
@@ -351,7 +393,7 @@ Character.create(
 )
 
 Character.create(
-  universe_id: Universe.find_by(title: 'Realm of Ethereal Dawn').id,
+  universe_id: Universe.find_by(title: 'Ethereal').id,
   photo: 'https://i.pinimg.com/564x/20/6a/8b/206a8bcfe9d9414c0d9782903e8946b0.jpg',
   name: 'Tharok',
   quotation: 'Même le plus féroce des dragons a un cœur.',
@@ -360,7 +402,7 @@ Character.create(
   a un grand respect pour toutes les formes de vie."
 )
 
-puts 'Creating Characters for Realm of Ethereal Dawn...Done!'
+puts 'Creating Characters for Ethereal...Done!'
 
 puts ''
 
@@ -685,76 +727,3 @@ Character.create(
 puts 'Creating Characters for Atlantide...Done!'
 
 puts ''
-
-
-# seeds test users
-User.create!(
-  email: 'hello@mail.com',
-  password: '123456',
-  username: 'hellocopainooooo',
-)
-
-puts 'Creating test user characters...'
-Storyroom.create!(
-  user_id: User.find_by(username:'Hugotesteur').id,
-  universe_id: Universe.find_by(title: 'Atlantide').id,
-  title: 'Test Storyroom 1',
-  storyroom_synopsis: 'This is a test storyroom.',
-)
-
-StoryroomCharacter.create(
-  storyroom_id: Storyroom.find_by(title: 'Test Storyroom 1').id,
-  user_id: User.find_by(username: 'Hugotesteur').id,
-  photo: 'https://i.pinimg.com/564x/ef/96/db/ef96db5d0dd97ce7adde9286c4abbff4.jpg',
-  name: 'Calder',
-  quotation: "Chaque grotte inexplorée est une histoire en attente d'être découverte.",
-  background: "Calder, surnommé 'The Deep Explorer', est un aventurier courageux qui a
-  consacré sa vie à explorer les profondeurs inconnues d'Atlantide. Il est toujours
-  prêt pour une nouvelle aventure."
-)
-puts'reating test user characters...Done!'
-
-StoryroomCharacter.create(
-  storyroom_id: Storyroom.find_by(title:'Test Storyroom 1').id,
-  user_id: User.find_by(username: 'hellocopainooooo').id,
-  photo: 'https://i.pinimg.com/564x/ef/96/db/ef96db5d0dd97ce7adde9286c4abbff4.jpg',
-  name: 'Calder',
-  quotation: "Chaque grotte inexplorée est une histoire en attente d'être découverte.",
-  background: "Calder, surnommé 'The Deep Explorer', est un aventurier courageux qui a
-  consacré sa vie à explorer les profondeurs inconnues d'Atlantide. Il est toujours
-  prêt pour une nouvelle aventure."
-)
-puts'reating test user characters...Done!'
-
-
-
-
-
-Storyroom.create!(
-  user_id: User.find_by(username: 'hellocopainooooo').id,
-  universe_id: Universe.find_by(title: 'Star Wars').id,
-  title: 'Test Storyroom 2',
-  storyroom_synopsis: 'This is a test storyroom.',
-)
-
-StoryroomCharacter.create(
-  storyroom_id: Storyroom.find_by(title: 'Test Storyroom 2').id,
-  user_id: User.find_by(username: 'hellocopainooooo').id,
-  photo: 'https://i.pinimg.com/564x/ef/96/db/ef96db5d0dd97ce7adde9286c4abbff4.jpg',
-  name: 'Calder',
-  quotation: "Chaque grotte inexplorée est une histoire en attente d'être découverte.",
-  background: "Calder, surnommé 'The Deep Explorer', est un aventurier courageux qui a
-  consacré sa vie à explorer les profondeurs inconnues d'Atlantide. Il est toujours
-  prêt pour une nouvelle aventure."
-)
-
-StoryroomCharacter.create(
-  storyroom_id: Storyroom.find_by(title: 'Test Storyroom 2').id,
-  user_id: User.find_by(username: 'Hugotesteur').id,
-  photo: 'https://i.pinimg.com/564x/ef/96/db/ef96db5d0dd97ce7adde9286c4abbff4.jpg',
-  name: "c'est mon copain là!",
-  quotation: "Chaque grotte inexplorée est une histoire en attente d'être découverte.",
-  background: "Calder, surnommé 'The Deep Explorer', est un aventurier courageux qui a
-  consacré sa vie à explorer les profondeurs inconnues d'Atlantide. Il est toujours
-  prêt pour une nouvelle aventure."
-)

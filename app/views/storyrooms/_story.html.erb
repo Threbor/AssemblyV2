@@ -21,7 +21,7 @@
     <%# les messages ---------------------------------------- %>
     <% if StoryroomCharacter.find_by(storyroom: @storyroom, user: item.user) %>
         <div class="messages_infos">
-          <p><%= item.created_at.strftime("%d %B %Y, %H:%M") %></p>
+          <p><%= l(item.created_at, format: "%d %B %Y, %H:%M") %></p>
           <div class="character_user_picture" style="background-image: url(<%= StoryroomCharacter.find_by(storyroom: @storyroom, user: item.user).photo %>);">
           </div>
           <p><%= StoryroomCharacter.find_by(storyroom: @storyroom, user: item.user).name %></p>

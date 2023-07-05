@@ -5,14 +5,29 @@
   <p>Notez que notre plateforme est en cours de développement. Des modifications
   de la base de données pourraient entraîner la perte de vos récits en cours.
   Merci de votre compréhension.</p>
+</div>
 
   <% if user_signed_in? %>
-    <p>Vous êtes connecté en tant que <%= current_user.username %>.</p>
-      <%= button_to destroy_user_session_path, method: :delete do %>
-        <i class="fa-solid fa-arrow-right-from-bracket"></i>
-      <% end %>
+    <div class="paragraphe_container home_log_out">
+      <p>Vous êtes connecté en tant que :</p>
+      <p>- <%= current_user.username %> -</p>
+        <%= button_to destroy_user_session_path, method: :delete do %>
+          <i class="fa-solid fa-arrow-right-from-bracket"></i>
+        <% end %>
+    </div>
   <% else %>
-    <p>Vous devez vous enregistrer pour pouvoir utiliser l'application.</p>
-    <%= link_to 'Sign in', user_session_path %>
+    <div class="paragraphe_container">
+      <p>Avoir un compte pour permettra d'utiliser l'application</p>
+      <%= link_to new_user_registration_path  do %>
+        <p><strong>Sign up</strong></p>
+      <% end %>
+    </div>
+    <div class="infos_container">
+      <p>Pensez à bien choisir votre "username", c'est lui qui permettra aux autres utilisateurs de vous inviter</p>
+    </div>
+    <div class="paragraphe_container">
+      <%= link_to user_session_path do %>
+        <p><strong>Log in</strong></p>
+      <% end %>
+    </div>
   <% end %>
-</div>

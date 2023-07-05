@@ -30,3 +30,6 @@ application.register("storyroom-characters", StoryroomCharactersController)
 
 import StoryroomIndexController from "./storyroom-index_controller"
 application.register("storyroom-index", StoryroomIndexController)
+
+import StoryroomNewCharactersController from "./storyroom-new-characters_controller"
+application.register("storyroom-new-characters", StoryroomNewCharactersController)
