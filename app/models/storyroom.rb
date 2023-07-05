@@ -14,4 +14,5 @@ class Storyroom < ApplicationRecord
   has_many :messages, dependent: :destroy
   has_many :storycards, dependent: :destroy
   has_many :storyroom_characters, dependent: :destroy
+  validates :title, presence: true, uniqueness: { scope: :universe }
 end

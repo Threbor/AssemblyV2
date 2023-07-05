@@ -53,6 +53,9 @@ gem 'bootstrap', '~> 5.0'
 
 gem 'turbolinks', '~> 5'
 
+gem 'rails-i18n'
+
+
 
 # Use Sass to process CSS
 # gem "sassc-rails"

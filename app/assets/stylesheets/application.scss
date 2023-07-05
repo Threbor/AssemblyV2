@@ -1,7 +1,3 @@
-@import "pages/body";
-@import "pages/storyroom_new";
-@import "pages/storyroom_show";
-@import "pages/storyroom_index";
 
 @import "components/navbar";
 @import "components/topbar";
@@ -15,6 +11,14 @@
 @import "components/storyroom_events";
 @import "components/storyroom_cards";
 @import "components/storyroom_storylore";
+@import "components/storyroom_suggested_usernames";
+
+@import "pages/body";
+@import "pages/home_index";
+@import "pages/storyroom_new";
+@import "pages/storyroom_show";
+@import "pages/storyroom_index";
+@import "pages/storyroomcharacter_edit";
 
 // @import "font-awesome-sprockets";
 @import "font-awesome";

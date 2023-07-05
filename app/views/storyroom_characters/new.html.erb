@@ -9,8 +9,6 @@
   </div>
 </div>
 
-<p>afichage des perso aléatoires</p>
-
 <div data-controller="storyroom-characters">
   <div class="universe_characters">
     <h2>Les personnages à incarner</h2>
@@ -36,22 +34,28 @@
       </div>
     <% end %>
   </div>
-  <div class="paragraphe_container">
-    <p>select by user name</p>
+  <div class="paragraphe_container" data-controller="storyroom-new-characters">
+
+    <p>Inscivez un nom d'utilisateur</p>
 
       <div class="invite_user">
         <%= form_with url: storyroom_storyroom_characters_path(@storyroom), method: :post, id: "storyroom-form" do %>
-          <%= text_field_tag :username, nil, label: "username" %>
+          <%= text_field_tag :username, nil, label: "username", id: "username-id-field", "data-storyroom-new-characters-target" => "usernameIdField" %>
           <%= hidden_field_tag :character_id, "", id: "character-id-field", "data-storyroom-characters-target" => "characterIdField" %>
           <%= button_tag type: "submit", class: "floating-button" do %>
             <i class="fa-solid fa-user-plus"></i>
           <% end %>
         <% end %>
       </div>
-
-    <h2>Suggestions</h2>
-    <% @close_users.each do |close_user| %>
-      <p><%= close_user.username %></p>
-    <% end %>
+      <% if @close_user %>
+        <h2>Suggestions</h2>
+        <div class="suggested_usernames">
+          <% @close_users.each do |close_user| %>
+            <p data-storyroom-new-characters-target="usernameSuggested" data-action="click->storyroom-new-characters#pasteUsername" ><%= close_user.username %></p>
+          <% end %>
+      <% else %>
+        <h2>_</h2>
+      <% end %>
+    </div>
   </div>
 </div>

@@ -1,0 +1,17 @@
+.home_log_out {
+
+  & button {
+    background-color: transparent;
+    border: none;
+    color: #333;
+    font-size: 2rem;
+    transition: ease-in-out 0.3s;
+    cursor: pointer;
+
+  }
+
+  & button:hover {
+    color: #c2c2c2;
+    
+  }
+}
