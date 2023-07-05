@@ -1,0 +1,24 @@
+<%= link_to storyroom_path(@storyroom), class:"topbar_back_button" do %>
+  <i class="fa-solid fa-angle-left"></i>
+<% end %>
+
+<div class="paraphe_container">
+  <div class="character_img" style="background-image: url(<%= @storyroom_character.photo %>);">
+  </div>
+</div>
+
+<div class="storyroom_newtail">
+  <%= form_with model: [@storyroom, @storyroom_character] do |form| %>
+    <div>
+      <%= form.label :storyroom_storyroom_characters, "Modifier" %>
+      <%= form.text_field :storyroom_character_name, value: @storyroom_character.name %>
+      <%= form.text_field :storyroom_character_quotation, value: @storyroom_character.quotation %>
+      <%= form.text_area :storyroom_character_background, value: @storyroom_character.background, rows: 10 %>
+    </div>
+
+    <%= button_tag(type: 'submit') do %>
+      <i class="fa-solid fa-feather"></i>
+    <% end %>
+
+  <% end %>
+</div>

@@ -8,6 +8,7 @@
   <p><%= @universe.title %> - <%= @universe.description.split('.').first %></p>
 </div>
 
+
 <div class="storyroom_newtail">
   <%= form_with model: @storyroom do |form| %>
     <%= form.hidden_field :universe_id, value: @universe.id %>
@@ -17,23 +18,20 @@
       <%= form.text_field :title, value: 'L\'histoire de ...'%>
     </div>
 
-  <div class="paragraphe_container">
-    <p>Modifiez les élements ci-dessous si vous le souhaitez.</p>
-  </div>
 
     <div>
       <%= form.label :storyroom_synopsis, "Synopsis" %>
       <%= form.hidden_field :storyroom_synopsis_original_id, value: @synopsis.id%>
-      <%= form.text_area :storyroom_synopsis, value: @synopsis.description, rows: 5 %>
+      <%= form.text_area :storyroom_synopsis, value: @synopsis.description, rows: 10 %>
+      <%= form.hidden_field :storyroom_character_original_id, value: @character.id%>
+      <%= form.hidden_field :storyroom_character_name, value: @character.name %>
+      <%= form.hidden_field :storyroom_character_quotation, value: @character.quotation %>
+      <%= form.hidden_field :storyroom_character_background, value: @character.background%>
+      <%= form.hidden_field :storyroom_character_photo, value: @character.photo %>
     </div>
 
-    <div>
-      <%= form.label :storyroom_character, "Personnage" %>
-      <%= form.hidden_field :storyroom_character_original_id, value: @character.id%>
-      <%= form.text_field :storyroom_character_name, value: @character.name %>
-      <%= form.text_field :storyroom_character_quotation, value: @character.quotation %>
-      <%= form.text_area :storyroom_character_background, value: @character.background, rows: 8 %>
-      <%= form.hidden_field :storyroom_character_photo, value: @character.photo %>
+    <div class="paragraphe_container">
+      <p>Vous pourrez également modifier les personnages par la suite</p>
     </div>
 
     <%= button_tag(type: 'submit') do %>

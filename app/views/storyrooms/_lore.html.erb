@@ -1,11 +1,14 @@
-<div class="storyroom_edit_icon">
-  <%= button_to storyroom_path(@storyroom), method: :delete, data: { confirm: 'Are you sure?' } do %>
-    <i class="fa-regular fa-trash-can"></i>
-  <% end %>
-  <%= link_to edit_storyroom_path(@storyroom), method: :get do %>
-    <i class="fa-regular fa-pen-to-square"></i>
-  <% end %>
-</div>
+<% if @storyroom.user == current_user %>
+  <div class="storyroom_edit_icon">
+    <%= button_to storyroom_path(@storyroom), method: :delete, data: { confirm: 'Are you sure?' } do %>
+      <i class="fa-regular fa-trash-can"></i>
+    <% end %>
+    <%= link_to edit_storyroom_path(@storyroom), method: :get do %>
+      <i class="fa-regular fa-pen-to-square"></i>
+    <% end %>
+  </div>
+<% end %>
+
 
 <div class="paragraphe_container">
   <h2>L'univers de <%= @storyroom.universe.title %></h2>
@@ -23,20 +26,38 @@
   <% else %>
     <h2>Les personnages</h2>
   <% end %>
-  <% @storyroom.storyroom_characters.each do | storyroom_character | %>
+  <% @storyroom_characters.each do | storyroom_character | %>
     <div class="universe_character selected">
       <div class="character_top">
         <div class="character_img" style="background-image: url(<%= storyroom_character.photo %>);">
         </div>
         <div class="character_info">
-          <h3><%= storyroom_character.name %></h3>
+          <h3>
+            <%= storyroom_character.name %>
+            <% if storyroom_character.user == @storyroom.user %>
+              <i class="fa-solid fa-crown"></i>
+            <% end %>
+          </h3>
           <p><em>"<%= storyroom_character.quotation %>"</em></p>
         </div>
       </div>
       <div class="character_description">
         <p><%= storyroom_character.background %></p>
       </div>
-      <p>hello</p>
+        <% if storyroom_character.user == current_user %>
+          <% if storyroom_character.user != @storyroom.user %>
+            <%= button_to storyroom_storyroom_character_path(@storyroom, storyroom_character), method: :delete, data: { confirm: 'Are you sure?' } do %>
+              <i class="fa-solid fa-skull-crossbones"></i>
+            <% end %>
+          <% end %>
+          <%= link_to edit_storyroom_storyroom_character_path(@storyroom, storyroom_character), method: :get do %>
+            <i class="fa-regular fa-pen-to-square"></i>
+          <% end %>
+        <% elsif @storyroom.user == current_user && storyroom_character.user != @storyroom.user%>
+          <%= button_to storyroom_storyroom_character_path(@storyroom, storyroom_character), method: :delete, data: { confirm: 'Are you sure?' } do %>
+            <i class="fa-solid fa-skull-crossbones"></i>
+          <% end %>
+        <% end %>
     </div>
   <% end %>
   </div>
