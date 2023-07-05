@@ -22,14 +22,14 @@ class EventsController < ApplicationController
   end
 
   def outcome(dice_value)
-    if dice_value <= 5
-      'Désastreux'
+    if dice_value <= 2
+      'Echec critique'
     elsif dice_value <= 10
-      'Contrariant'
-    elsif dice_value <= 15
-      'Opportun'
+      'Négatif'
+    elsif dice_value <= 18
+      'Positif'
     elsif dice_value <= 20
-      'Triomphant'
+      'Réussite critique'
     else
       'Neutre'
     end

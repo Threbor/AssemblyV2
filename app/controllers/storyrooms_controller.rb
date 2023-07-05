@@ -2,13 +2,14 @@ class StoryroomsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @storyrooms = Storyroom.where(user: current_user)
+    @storyrooms = Storyroom.where(user: current_user).order(created_at: :desc)
     @groups = []
     current_user.storyroom_characters.each do |storyroom_character|
       @groups << storyroom_character.storyroom if storyroom_character.storyroom.user != current_user
     end
-
+    @groups.sort_by! { |group| group.created_at }.reverse!
   end
+
 
   def show
     @storyroom = Storyroom.find(params[:id])
@@ -20,11 +21,9 @@ class StoryroomsController < ApplicationController
     @characters = @storyroom.universe.characters
     @words = @storyroom.universe.words
 
-    # astuce en patientant l'intégration d'ajax
-    # @timeline_items = (@storyroom.events + @storyroom.messages).sort_by(&:created_at)
     @timeline_items = (@storyroom.events + @storyroom.messages).sort_by(&:created_at).reverse
 
-    @storyroom_character = @storyroom.storyroom_characters.first
+    @storyroom_characters = @storyroom.storyroom_characters.sort_by(&:created_at)
 
     @message = Message.new
   end
@@ -51,7 +50,7 @@ class StoryroomsController < ApplicationController
     @storyroom.storyroom_synopsis = params[:storyroom][:storyroom_synopsis]
 
     # création du personnage
-    @storyroom_character = StoryroomCharacter.new()
+    @storyroom_character = StoryroomCharacter.new(storyroom: @storyroom, user: current_user)
     @storyroom_character.name = params[:storyroom][:storyroom_character_name]
     @storyroom_character.quotation = params[:storyroom][:storyroom_character_quotation]
     @storyroom_character.background = params[:storyroom][:storyroom_character_background]
@@ -82,7 +81,7 @@ class StoryroomsController < ApplicationController
     @title = @storyroom.title
     @universe = @storyroom.universe
     @storyroom_synopsis = @storyroom.storyroom_synopsis
-    @storyroom_character = @storyroom.storyroom_characters.first
+    @storyroom_character = StoryroomCharacter.find_by(storyroom: @storyroom, user: current_user)
   end
 
   def update
@@ -91,13 +90,6 @@ class StoryroomsController < ApplicationController
       title: params[:storyroom][:title],
       storyroom_synopsis: params[:storyroom][:storyroom_synopsis])
 
-    @storyroom_character = @storyroom.storyroom_characters.first
-    @storyroom_character.update(
-      name: params[:storyroom][:storyroom_character_name],
-      quotation: params[:storyroom][:storyroom_character_quotation],
-      background: params[:storyroom][:storyroom_character_background],
-      photo: params[:storyroom][:storyroom_character_photo]
-    )
     redirect_to storyroom_path(@storyroom)
   end
 

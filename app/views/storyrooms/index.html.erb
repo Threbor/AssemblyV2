@@ -1,42 +1,41 @@
-<% if @storyrooms.empty? %>
-  <div class="paragraphe_container">
-    <p>Commencez par sélectionner un univers pour débuter votre récit.<br><i class="fa-solid fa-feather"></i></p>
-  </div>
-<% end %>
 
-<div data-controller="storyroom-index">
-  <div class="storyroom_universe_btn">
+<div data-controller="storyroom-index" class="storyroom_index">
+  <div class="storyroom_index_btn">
     <button data-action="storyroom-index#showOwner" data-storyroom-index-target="owner_btn" class="selected" id="owner-button"><i class="fa-solid fa-crown"></i></button>
     <button data-action="storyroom-index#showGroups" data-storyroom-index-target="groups_btn" id="groups-button"><i class="fa-solid fa-user-group"></i></button>
   </div>
 
-<div data-storyroom-index-target="owner" class="selected">
-  <p>owner</p>
-  <% @storyrooms.each do |storyroom| %>
-    <%= link_to storyroom_path(storyroom), class: "storyroom_card", style: "background-image: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 50%), url(#{storyroom.universe.photo});" do %>
-      <h2><%= storyroom.title[0..50] %></h2>
-      <div class="card_stats">
-        <p><%= storyroom.universe.title %> </p>
-        <p class="d20"><i class="fa-solid fa-dice-d20"></i> <%= storyroom.storycards.count %></p>
-        <p><i class="fa-solid fa-user"></i> <%= storyroom.storyroom_characters.count %></p>
-      </div>
-    <% end %>
+  <% if @storyrooms.empty? %>
+    <div class="paragraphe_container">
+      <p>Commencez par sélectionner un univers pour débuter votre récit.<br><i class="fa-solid fa-feather"></i></p>
+    </div>
   <% end %>
-</div>
 
-<div data-storyroom-index-target="groups">
-  <p>groups</p>
-    <% @groups.each do |group| %>
-      <%= link_to storyroom_path(group), class: "storyroom_card", style: "background-image: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 50%), url(#{group.universe.photo});" do %>
-        <h2><%= group.title[0..50] %></h2>
+  <div data-storyroom-index-target="owner" class="owner selected">
+    <% @storyrooms.each do |storyroom| %>
+      <%= link_to storyroom_path(storyroom), class: "storyroom_card", style: "background-image: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 50%), url(#{storyroom.universe.photo});" do %>
+        <h2><%= storyroom.title[0..50] %></h2>
         <div class="card_stats">
-          <p><%= group.universe.title %> </p>
-          <p class="d20"><i class="fa-solid fa-dice-d20"></i> <%= group.storycards.count %></p>
-          <p><i class="fa-solid fa-user"></i> <%= group.storyroom_characters.count %></p>
+          <p><%= storyroom.universe.title %> </p>
+          <p class="d20"><i class="fa-solid fa-dice-d20"></i> <%= storyroom.storycards.count %></p>
+          <p><i class="fa-solid fa-user"></i> <%= storyroom.storyroom_characters.count %></p>
         </div>
+      <% end %>
     <% end %>
-  <% end %>
-</div>
+  </div>
+
+  <div data-storyroom-index-target="groups" class="groups">
+      <% @groups.each do |group| %>
+        <%= link_to storyroom_path(group), class: "storyroom_card", style: "background-image: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 50%), url(#{group.universe.photo});" do %>
+          <h2><%= group.title[0..50] %></h2>
+          <div class="card_stats">
+            <p><%= group.universe.title %> </p>
+            <p class="d20"><i class="fa-solid fa-dice-d20"></i> <%= group.storycards.count %></p>
+            <p><i class="fa-solid fa-user"></i> <%= group.storyroom_characters.count %></p>
+          </div>
+      <% end %>
+    <% end %>
+  </div>
 
 
 </div>

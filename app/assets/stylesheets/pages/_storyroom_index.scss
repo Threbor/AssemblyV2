@@ -1,0 +1,35 @@
+.storyroom_index {
+
+  & .owner  {
+    display: none;
+  }
+
+  & .groups {
+    display: none;
+  }
+
+  & .selected {
+    display: block;
+  }
+}
+
+.storyroom_index_btn {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: transparent;
+  border: none;
+  font-size: 1.5rem;
+
+  & button {
+    background-color: transparent;
+    border: none;
+    color: #c2c2c2;
+    font-size: 2rem;
+    transition: ease-in-out 0.3s;
+  }
+
+  & button.selected {
+    color: #333;
+  }
+}

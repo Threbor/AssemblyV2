@@ -7,31 +7,25 @@
   <p><%= @universe.description.split('.').first %>.</p>
 </div>
 
+<div class="paragraphe_container">
+  <p>Modifiez comme vous le désirez</p>
+</div>
+
 <div class="storyroom_newtail">
-  <h4>Modifiez les élements si vous le souhaitez</h4>
   <%= form_with model: @storyroom do |form| %>
 
     <div>
-      <%= form.label :storyroom_synopsis, "Synopsis" %>
-      <%= form.text_area :storyroom_synopsis, value: @storyroom_synopsis, rows: 5 %>
-    </div>
-
-    <div>
-      <%= form.label :storyroom_character, "Personnage" %>
-      <%= form.hidden_field :storyroom_character_original_id, value: @storyroom_character.id%>
-      <%= form.text_field :storyroom_character_name, value: @storyroom_character.name %>
-      <%= form.text_field :storyroom_character_quotation, value: @storyroom_character.quotation %>
-      <%= form.text_area :storyroom_character_background, value: @storyroom_character.background, rows: 8 %>
-      <%= form.hidden_field :storyroom_character_photo, value: @storyroom_character.photo %>
-    </div>
-
-    <div>
-      <%= form.label :title, "Titre de votre récit" %>
+      <%= form.label :title, "Titre du récit" %>
       <%= form.text_field :title, value: @storyroom.title%>
     </div>
 
+    <div>
+      <%= form.label :storyroom_synopsis, "Synopsis" %>
+      <%= form.text_area :storyroom_synopsis, value: @storyroom_synopsis, rows: 10 %>
+    </div>
+
     <%= button_tag(type: 'submit') do %>
-        <i class="fa-regular fa-floppy-disk"></i>
+      <i class="fa-solid fa-feather"></i>
     <% end %>
 
   <% end %>
