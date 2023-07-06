@@ -9,13 +9,13 @@
   <%= form_with model: [@storyroom, @storyroom_character] do |form| %>
     <div>
       <%= form.label :storyroom_storyroom_characters, "Modifier" %>
-      <%= form.text_field :storyroom_character_name, value: @storyroom_character.name %>
-      <%= form.text_field :storyroom_character_quotation, value: @storyroom_character.quotation %>
-      <%= form.text_area :storyroom_character_background, value: @storyroom_character.background, rows: 10 %>
+      <%= form.text_field :storyroom_character_name, value: @storyroom_character.name, class: "textfield_custom" %>
+      <%= form.text_field :storyroom_character_quotation, value: @storyroom_character.quotation, class: "textfield_custom" %>
+      <%= form.text_area :storyroom_character_background, value: @storyroom_character.background, rows: 10, class: "textarea_custom" %>
     </div>
 
     <%= button_tag(type: 'submit') do %>
-      <i class="fa-solid fa-feather"></i>
+      <i class="fa-regular fa-floppy-disk"></i>
     <% end %>
 
   <% end %>

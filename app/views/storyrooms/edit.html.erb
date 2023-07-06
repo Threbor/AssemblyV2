@@ -16,16 +16,16 @@
 
     <div>
       <%= form.label :title, "Titre du récit" %>
-      <%= form.text_field :title, value: @storyroom.title%>
+      <%= form.text_field :title, value: @storyroom.title, class: "textfield_custom" %>
     </div>
 
     <div>
-      <%= form.label :storyroom_synopsis, "Synopsis" %>
-      <%= form.text_area :storyroom_synopsis, value: @storyroom_synopsis, rows: 10 %>
+      <%= form.label :storyroom_synopsis, "Scénario" %>
+      <%= form.text_area :storyroom_synopsis, value: @storyroom_synopsis, rows: 10, class: "textarea_custom" %>
     </div>
 
     <%= button_tag(type: 'submit') do %>
-      <i class="fa-solid fa-feather"></i>
+      <i class="fa-regular fa-floppy-disk"></i>
     <% end %>
 
   <% end %>
