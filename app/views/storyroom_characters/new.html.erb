@@ -40,7 +40,7 @@
 
       <div class="invite_user">
         <%= form_with url: storyroom_storyroom_characters_path(@storyroom), method: :post, id: "storyroom-form" do %>
-          <%= text_field_tag :username, nil, label: "username", id: "username-id-field", "data-storyroom-new-characters-target" => "usernameIdField" %>
+          <%= text_field_tag :username, nil, label: "username", id: "username-id-field", "data-storyroom-new-characters-target" => "usernameIdField", class: "textfield_custom" %>
           <%= hidden_field_tag :character_id, "", id: "character-id-field", "data-storyroom-characters-target" => "characterIdField" %>
           <%= button_tag type: "submit", class: "floating-button" do %>
             <i class="fa-solid fa-user-plus"></i>

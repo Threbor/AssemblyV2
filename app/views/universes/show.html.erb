@@ -11,7 +11,7 @@
 
 <div data-controller="universe">
   <div class="universe_synopses">
-    <h2>Les synopses</h2>
+    <h2>Les scénarios</h2>
     <div class="caroussel_btn">
       <button data-action="universe#previousSynopsis" data-universe-target="previousSynopseButton"><i class="fa-solid fa-angle-left"></i></button>
       <button data-action="universe#randomSynopsis" data-universe-target="randomSynopseButton"><i class="fa-solid fa-dice-d20"></i></button>
@@ -55,7 +55,7 @@
       <%= hidden_field_tag :synopse_id, "", id: "synopse-id-field", "data-universe-target" => "synopseIdField" %>
       <%= hidden_field_tag :character_id, "", id: "character-id-field", "data-universe-target" => "characterIdField" %>
       <%= button_tag type: "submit", class: "floating-button" do %>
-        <i class="fa-solid fa-feather"></i>
+        <strong>+</strong><i class="fa-solid fa-feather"></i>
       <% end %>
     <% end %>
   </div>

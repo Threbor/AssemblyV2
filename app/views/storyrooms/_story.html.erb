@@ -21,7 +21,7 @@
     <%# les messages ---------------------------------------- %>
     <% if StoryroomCharacter.find_by(storyroom: @storyroom, user: item.user) %>
         <div class="messages_infos">
-          <p><%= l(item.created_at, format: "%d %B %Y, %H:%M") %></p>
+          <p><%= l(item.created_at.in_time_zone("Paris"), format: "%d %B %Y, %H:%M") %></p>
           <div class="character_user_picture" style="background-image: url(<%= StoryroomCharacter.find_by(storyroom: @storyroom, user: item.user).photo %>);">
           </div>
           <p><%= StoryroomCharacter.find_by(storyroom: @storyroom, user: item.user).name %></p>
@@ -58,9 +58,9 @@
       <% end %>
     </div>
 
-    <div class="message_typing">
+    <div class="message_typing ">
       <%= form_for [@storyroom, @message] do |f| %>
-        <%= f.text_field :content, data: { messagebar_target: "messageField"} %>
+        <%= f.text_field :content, data: { messagebar_target: "messageField"}, class: "textfield_custom" %>
         <%= button_tag(type: 'submit') do %>
           <i class="fa-solid fa-feather"></i>
         <% end %>

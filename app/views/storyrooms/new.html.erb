@@ -14,15 +14,15 @@
     <%= form.hidden_field :universe_id, value: @universe.id %>
 
     <div>
-      <%= form.label :title, "Nommez votre votre récit" %>
-      <%= form.text_field :title%>
+      <%= form.label :title, "Nommez votre récit" %>
+      <%= form.text_field :title, class: "textfield_custom"%>
     </div>
 
 
     <div>
-      <%= form.label :storyroom_synopsis, "Synopsis" %>
+      <%= form.label :storyroom_synopsis, "Le scénario" %>
       <%= form.hidden_field :storyroom_synopsis_original_id, value: @synopsis.id%>
-      <%= form.text_area :storyroom_synopsis, value: @synopsis.description, rows: 10 %>
+      <%= form.text_area :storyroom_synopsis, value: @synopsis.description, rows: 10, class: "textarea_custom" %>
       <%= form.hidden_field :storyroom_character_original_id, value: @character.id%>
       <%= form.hidden_field :storyroom_character_name, value: @character.name %>
       <%= form.hidden_field :storyroom_character_quotation, value: @character.quotation %>
@@ -30,13 +30,14 @@
       <%= form.hidden_field :storyroom_character_photo, value: @character.photo %>
     </div>
 
-    <div class="paragraphe_container">
-      <p>Vous pourrez également modifier les personnages par la suite</p>
-    </div>
 
     <%= button_tag(type: 'submit') do %>
       <i class="fa-solid fa-feather"></i>
     <% end %>
+
+    <div class="info_container">
+      <p>Vous pourrez également modifier les personnages par la suite</p>
+    </div>
 
   <% end %>
 </div>

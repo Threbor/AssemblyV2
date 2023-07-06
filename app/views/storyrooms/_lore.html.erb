@@ -3,6 +3,9 @@
     <%= button_to storyroom_path(@storyroom), method: :delete, data: { confirm: 'Are you sure?' } do %>
       <i class="fa-regular fa-trash-can"></i>
     <% end %>
+    <%= link_to new_storyroom_storyroom_character_path(@storyroom), id: "add_user" do%>
+      <i class="fa-solid fa-user-plus"></i>
+    <% end %>
     <%= link_to edit_storyroom_path(@storyroom), method: :get do %>
       <i class="fa-regular fa-pen-to-square"></i>
     <% end %>
@@ -16,7 +19,7 @@
 </div>
 
 <div class="paragraphe_container">
-  <h2>Le synopsis du récit</h2>
+  <h2>Le scénario du récit</h2>
   <p><%= @storyroom.storyroom_synopsis %></p>
 </div>
 
@@ -63,10 +66,4 @@
       </div>
     </div>
   <% end %>
-  </div>
-<div class="paragraphe_container" id="add_user">
-  <%= link_to new_storyroom_storyroom_character_path(@storyroom) do%>
-    <i class="fa-solid fa-user-plus"></i>
-  <% end %>
-</div>
 </div>
