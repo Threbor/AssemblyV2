@@ -7,21 +7,21 @@
   background-size: cover;
   background-repeat: no-repeat;
   height: 11rem;
-  padding: 20px;
-  margin: 20px;
+  padding: 1rem;
+  margin: 1rem;
   border-radius: 5px;
 
   position: relative;
 
   & h2 {
    text-align: left;
-   color: #ffffff;
+   color: $color_gray;
    font-size: 24px;
    margin-bottom: 0;
   }
 
   & p {
-    color: #ffffff;
+    color: $color_gray;
     font-size: 16px;
     margin-bottom: 0;
   }
@@ -53,7 +53,7 @@
     justify-content: space-between;
 
     & button {
-      color: #bbbbbb;
+      color: $color_gray;
       background-color: transparent;
       border: 1px solid transparent;
       padding: 1rem;
@@ -62,12 +62,12 @@
     }
 
     & button:hover {
-      color: #ffffff;
+      color: $color_gray;
     }
 
     & .selected {
-      color: #ffffff;
-      border-bottom: 1px solid #ffffff;
+      color: white;
+      border-bottom: 1px solid white;
 
     }
   }

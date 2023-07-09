@@ -1,12 +1,12 @@
 <div class="universes_section" data-controller="hellouniverse">
   <div class="paragraphe_container">
-    <h1>Les univers disponibles</h1>
+    <h1>Les univers</h1>
+    <a href=""><i class="fa-solid fa-dice-d20" id="rand_dice_univ_index"></i></a>
   </div>
   <% @universes.each do |universe| %>
-    <%= link_to universe_path(universe), class: "universe_card", style: "background-image: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 50%), url(#{universe.photo});" do %>
+    <%= link_to universe_path(universe), class: "universe_card", style: "background-image: linear-gradient(0deg, #1B1C20 0%, rgba(0,0,0,0) 50%), url(#{universe.photo});" do %>
       <h2><%= universe.title %></h2>
       <p><%= universe.description.split('.').first %>.</p>
-      <i class="fa-solid fa-info"></i>
       <div class="card_stats">
         <p><i class="fa-solid fa-book-open"></i> <%= universe.synopses.count %></p>
         <p><i class="fa-solid fa-user"></i> <%= universe.characters.count %></p>

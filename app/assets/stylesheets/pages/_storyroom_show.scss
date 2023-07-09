@@ -1,15 +1,15 @@
-.storyroom_newtail {
-  text-align: center;
-  grid-template-columns: repeat(4, 1fr);
-  grid-gap: 1rem;
-  margin: 1rem;
-}
+// .storyroom_newtail {
+//   text-align: center;
+//   grid-template-columns: repeat(4, 1fr);
+//   grid-gap: 1rem;
+//   margin: 1rem;
+// }
 
 .storyroom_edit_icon {
   padding: 1rem;
   display: flex;
   justify-content: space-around;
-  color: #333;
+  color: $color_gray;
 
   & a {
     position: relative;
@@ -36,17 +36,19 @@
     padding: 1rem;
     border-radius: 2rem;
     transition: all .3s ease-in-out;
+    color: $color_gray;
 
   }
 
   & i:hover {
-    background-color: #333;
+    background-color: $color_darkblue2;
     color: white;
   }
 }
 
 .storyroom_messages{
   margin-bottom: 5rem;
+  color: $color_gray;
 }
 
 .storyroom_lore {
@@ -59,14 +61,15 @@
 
   & i {
     font-size: 1.5rem;
-    box-shadow: 0 0 1rem rgba(0,0,0,0.1);
+    color: $color_gray;
+    border: 1px solid $color_gray;
     padding: 1rem;
     border-radius: 2rem;
     transition: all .3s ease-in-out;
   }
 
   & i:hover {
-    background-color: #333;
+    background-color: $color_darkblue2;
     color: white;
   }
 
@@ -75,7 +78,8 @@
     font-size: 1.5rem;
     padding: 1rem 3rem;
     border-radius: 4rem;
-    border: 1px solid transparent;
+    border: 1px solid $color_gray;
+
   }
 
   & .character_info {
@@ -88,6 +92,7 @@
       font-size: 1rem;
       color: #f1c40f;
       padding: 0;
+      border: transparent
     }
 
     & #owner_crown {

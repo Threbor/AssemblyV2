@@ -3,7 +3,7 @@
 <% end %>
 
 <div data-controller="storyroom" >
-  <div class="storyroom_card" style="background-image: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 75%), url(<%= @universe.photo %>);">
+  <div class="storyroom_card" style="background-image: linear-gradient(0deg, #1B1C20 0%, rgba(0,0,0,0) 75%), url(<%= @universe.photo %>);">
     <h2><%= @storyroom.title[0..50] %></h2>
     <p><%= @storyroom.universe.title %></p>
     <div class="storyroom_universe_btn">

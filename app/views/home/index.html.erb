@@ -1,25 +1,25 @@
 
 <div class="paragraphe_container">
   <h2>Bienvenue !</h2>
+  <% if user_signed_in? %>
+    <div class="paragraphe_container home_log_out">
+      <h3>- <%= current_user.username %> -</h3>
+        <%= button_to destroy_user_session_path, method: :delete do %>
+          <i class="fa-solid fa-arrow-right-from-bracket"></i>
+        <% end %>
+    </div>
+  <% end %>
   <p>Assembly est un espace pour créer et raconter des histoires !</p>
   <p>Notez que notre plateforme est en cours de développement. Des modifications
   de la base de données pourraient entraîner la perte de vos récits en cours.
   Merci de votre compréhension.</p>
 </div>
 
-  <% if user_signed_in? %>
-    <div class="paragraphe_container home_log_out">
-      <p>Vous êtes connecté en tant que :</p>
-      <p>- <%= current_user.username %> -</p>
-        <%= button_to destroy_user_session_path, method: :delete do %>
-          <i class="fa-solid fa-arrow-right-from-bracket"></i>
-        <% end %>
-    </div>
-  <% else %>
+  <% if !user_signed_in? %>
     <div class="paragraphe_container">
       <p>Avoir un compte pour permettra d'utiliser l'application</p>
-      <%= link_to new_user_registration_path  do %>
-        <p><strong>Sign up</strong></p>
+      <%= link_to new_user_registration_path do %>
+        <p class="sign_x" ><strong>Sign up</strong></p>
       <% end %>
     </div>
     <div class="infos_container">
@@ -27,7 +27,7 @@
     </div>
     <div class="paragraphe_container">
       <%= link_to user_session_path do %>
-        <p><strong>Log in</strong></p>
+        <p class="sign_x" ><strong>Log in</strong></p>
       <% end %>
     </div>
   <% end %>

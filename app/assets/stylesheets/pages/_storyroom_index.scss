@@ -24,12 +24,21 @@
   & button {
     background-color: transparent;
     border: none;
-    color: #c2c2c2;
+    color: $color_gray;
     font-size: 2rem;
     transition: ease-in-out 0.3s;
+    color: $color_gray;
+    border-radius: 2rem;
+    padding: 0.5rem 2rem;
   }
 
   & button.selected {
-    color: #333;
+    color: white;
+    background-color: $color_darkblue2;
+  }
+
+  & button:hover {
+    color: white;
+    background-color: $color_darkblue2;
   }
 }

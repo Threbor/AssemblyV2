@@ -3,7 +3,7 @@
   justify-content: center;
 
   & button {
-    color: #333;
+    color: $color_gray;
     background-color: transparent;
     border: none;
     border-radius: 5px;
@@ -15,6 +15,6 @@
   }
 
   & button:hover {
-    color: #0056b3;
+    color: white;
   }
 }

@@ -8,9 +8,11 @@
   margin: 1rem;
   margin-top: 2rem;
   position: relative;
-  color: #333;
+  color: $color_gray;
   border-radius: .5rem;
-  box-shadow: 0 0 1rem rgba(0,0,0,0.1);
+  // box-shadow: 0 0 1rem $color_darkblue1;
+  background-color: $color_darkblue2;
+
 
   & i {
     position: absolute;
@@ -36,7 +38,7 @@
   & p {
     position: absolute;
     top: -88%;
-    color: #333;
+    color: $color_gray;
     z-index: 1;
     font-weight: bold;
 
@@ -52,7 +54,7 @@
 
   & i {
     position: absolute;
-    color: #333;
+    color: $color_gray;
     font-size: 1.5rem;
     left: 50%;
     top: 50%;
