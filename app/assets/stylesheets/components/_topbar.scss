@@ -1,5 +1,5 @@
 .topbar {
-  color: #333;
+  color: $color_gray;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -7,35 +7,46 @@
   top: 0;
   left: 0;
   width: 100%;
-  background-color: white;
-  height: 3.5rem;
-  border-bottom: 1px solid #333;
+  // background-color: $color_darkblue1;
+  background-color: transparent;
+  height: 2.5rem;
+  // border-bottom: 1px solid $color_gray;
   z-index: 100;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
 
   & a {
-    color: #333;
+    color: $color_gray;
     text-decoration: none;
   }
 
   & i {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
   }
 
   & p {
     margin: 0;
+    padding: 0 1.5rem;
+    background-color: $color_dark;
+    border-radius: 5rem;
+    transition: ease-in-out .2s;
+
+  }
+
+  & p:hover {
+    background-color: $color_darkblue2;
+    color: white;
   }
 }
 
 .topbar_back_button {
   position: fixed;
-  top: 1rem;
+  top: .6rem;
   left: 1rem;
   z-index: 100;
   padding: 0 1.5rem;
-  color: #333;
+  color: $color_gray;
 
   & i {
-    font-size: 2rem;
+    font-size: 1.3rem;
   }
 }

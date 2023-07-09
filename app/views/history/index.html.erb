@@ -12,7 +12,7 @@
       </div>
     <% end %>
     <% @ended_stories.each do |storyroom| %>
-      <%= link_to storyroom_path(storyroom), class: "storyroom_card", style: "background-image: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 50%), url(#{storyroom.universe.photo});" do %>
+      <%= link_to storyroom_path(storyroom), class: "storyroom_card", style: "background-image: linear-gradient(0deg, #1B1C20 0%, rgba(0,0,0,0) 50%), url(#{storyroom.universe.photo});" do %>
         <h2><%= storyroom.title[0..50] %></h2>
         <div class="card_stats">
           <p><%= storyroom.universe.title %> </p>
@@ -33,7 +33,7 @@
         </div>
       <% end %>
       <% @ended_stories_groups.each do |group| %>
-        <%= link_to storyroom_path(group), class: "storyroom_card", style: "background-image: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 50%), url(#{group.universe.photo});" do %>
+        <%= link_to storyroom_path(group), class: "storyroom_card", style: "background-image: linear-gradient(0deg, #1B1C20 0%, rgba(0,0,0,0) 50%), url(#{group.universe.photo});" do %>
           <h2><%= group.title[0..50] %></h2>
           <div class="card_stats">
             <p><%= group.universe.title %> </p>

@@ -9,7 +9,7 @@
   <h2>Modifier</h2>
   <div class="message_typing_edit">
     <%= form_for [@storyroom, @message], url: storyroom_message_path(@storyroom, @message), method: :patch do |f| %>
-      <%= f.text_area :content, id:"messageFieldEdit" %>
+      <%= f.text_area :content, id:"messageFieldEdit", class: "textfield_custom" %>
       <%= f.submit "Mettre à jour" %>
     <% end %>
   </div>
